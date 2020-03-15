@@ -1,1 +1,129 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <style>
+            body,
+            html {
+            height: 100%;
+            }
+
+            .bg {
+            /* The image used */
+            background-image: url("assets/images/sunset.jpg");
+            
+            height: 50%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+
+            .font-bold{
+                font-size: 50px;
+                color: white;
+            }
+
+            h6{
+                color: aliceblue;
+                font-style:oblique;
+            }
+
+            .text-center{
+                padding-top: 120px;
+            }
+
+            .row-1{
+                box-sizing: border-box;
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+
+
+            .col{
+                float: left;
+                width: 50%;
+                padding: 10px;
+                height: 300px; /* Should be removed. Only for demonstration */
+            }
+
+
+            .row-1:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg">
+        
+            <div class="text-center">
+              <p class="font-bold " data-wow-delay="0.3s">JOBSTACK </p>
+              <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+              <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Recommends you the most suitable company </h6>
+              <br>
+              <button mat-stroked-button routerLink="home" class="mar-but" mat-raised-button>Sign Up</button>
+          </div>
+
+        </div>
+
+        <form>
+        <div class="row-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                  <mat-card-title>Job Seeker</mat-card-title>
+                                </mat-card-header>
+                                <img mat-card-image src="assets/images/job_seeker4.png" alt="Profile picture">
+                                <mat-card-content>
+                                  <p>
+                                    Job seekers can get recommendations for the most suitable company that will not only match their skills but also 
+                                    what they love to do and also provide them with a good salary, that has a very good background from
+                                     the public
+                                  </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button routerLink="/reservation" mat-button>Learn More</button>
+                                </mat-card-actions>
+                              </mat-card>
+                              
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                  <mat-card-title>Recruiter/Company</mat-card-title>
+                                </mat-card-header>
+                                <img mat-card-image src="assets/images/company1.png" alt="Profile picture">
+                                <mat-card-content>
+                                  <p>
+                                    companies can post their jobs and vacancies by registering and
+                                     later on manage the posted jobs and view the list of applicants to hire the best employee
+                                      who is perfect for that particular job.  
+
+                                  </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                  <button routerLink="/reservation" mat-button>Learn More</button>
+                                </mat-card-actions>
+                              </mat-card>
+                              
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        </div>
+        </form>
+
+    </body>
+</html>

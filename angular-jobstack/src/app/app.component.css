@@ -1,0 +1,16 @@
+example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mar-but{
+      margin-right: 10px;
+  }
+
+  .mat-toolbar.mat-primary {
+    background: #000307;
+    color: #fff;
+  }
