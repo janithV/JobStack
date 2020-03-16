@@ -13,6 +13,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { PostJobComponent } from './post-job/post-job.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material';
+
 
 
 @NgModule({
@@ -20,7 +25,8 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    PostJobComponent
+    PostJobComponent,
+    SignUpComponent
     
   ],
   imports: [
@@ -35,7 +41,12 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
     MatToolbarModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
