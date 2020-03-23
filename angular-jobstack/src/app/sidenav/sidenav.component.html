@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
-  
-  <mat-toolbar-row>
-    <span>JOBSTACK </span>
-    <!-- <app-sidenav></app-sidenav> -->
-    <span class="example-spacer"></span>
+<mat-drawer-container class="example-container"
+[hasBackdrop]="hasBackdrop.value">
+<mat-drawer  #drawer [mode]="mode.value">
     <button mat-stroked-button routerLink="home" class="mar-but" mat-raised-button>Home</button>
     <button mat-stroked-button routerLink="login" class="mar-but" mat-raised-button>Sign in</button>
     <button mat-stroked-button routerLink="post-job" class="mar-but" mat-raised-button>Post Job</button>
-  </mat-toolbar-row>
-</mat-toolbar>
+</mat-drawer>
+<mat-drawer-content>
+    <button mat-raised-button (click)="drawer.toggle()"></button>
+</mat-drawer-content>
 
-<router-outlet></router-outlet>
+</mat-drawer-container>
+

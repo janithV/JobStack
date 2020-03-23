@@ -17,6 +17,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material';
+// import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 
@@ -26,7 +27,8 @@ import {MatCheckboxModule} from '@angular/material';
     HomeComponent,
     LoginComponent,
     PostJobComponent,
-    SignUpComponent
+    SignUpComponent,
+    // SidenavComponent
     
   ],
   imports: [
