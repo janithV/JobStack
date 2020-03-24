@@ -102,9 +102,7 @@ else{
     if(rows.length){
      return done(null, false, req.flash('signupMessage', 'That is already taken'));
     }else{
-    var count = 1;
-     var newUserMysql = {
-      count: count, 
+     var newUserMysql = { 
       firstname: req.body.fname,
       lastname: req.body.lname,
       birthdate: req.body.dob,
@@ -128,9 +126,9 @@ else{
      };
      console.log(newUserMysql);
 
-     var insertQuery = "INSERT INTO UserTable (userId, userFirstName, userLastName, education, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelpoment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,? )";
+     var insertQuery = "INSERT INTO UserTable (userFirstName, userLastName, school, university, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelopment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
-     connection.query(insertQuery, [newUserMysql.count,newUserMysql.firstname, newUserMysql.lastname, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
+     connection.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
         if(err){
           console.log(err);
@@ -155,16 +153,16 @@ else{
   function(req, username, password, done){
    connection.query("SELECT * FROM UserTable WHERE userEmail = ? ", [username],
    function(err, rows){
-    if(err){
-     console.log(err);
-     return done(err);}
+    if(err)
+     return done(err);
      
     if(!rows.length){
      return done(null, false, req.flash('loginMessage', 'No User Found'));
     }
-    if(!bcrypt.compareSync(password, rows[0].password))
-     return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-
+    // if(!bcrypt.compareSync(password, rows[0].password))
+    //  return done(null, false, req.flash('loginMessage', 'Wrong Password'));
+     if(this.password != null) {return bcrypt.compareSync(password, this.password);
+     } else {return false; } 
     return done(null, rows[0]);
    });
   })
