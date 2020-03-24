@@ -2,116 +2,116 @@
 <html>
     <head>
     <title>Sign up</title>
+
+    <style>
+      .bg {
+            /* The image used */
+            background-image: url("assets/images/sign.png");
+            
+            height: 150%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+      }
+
+      .form{
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                margin: 5%;
+                font-weight: bold;
+                color: #000000;
+      }
+
+      h5{
+        text-align: center;
+        color: black;
+      }
+
+      .mar-but{
+                float:right;
+                margin-top: 5px;
+                margin-right: 5px;
+                width: 100px;
+                height: 40px;
+      }
+    </style>
     </head>
 
     <body>
-        <mat-horizontal-stepper [linear]="isLinear" #stepper>
-            <mat-step [stepControl]="firstFormGroup">
-              <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Personal Details</ng-template>
-                <mat-form-field>
-                  <input matInput placeholder="First name" formControlName="firstName" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input matInput placeholder="Last name" formControlName="lastName" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input matInput placeholder="Address" formControlName="address" required>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Work Experience</ng-template>
-
-                <mat-checkbox>I have no work experience</mat-checkbox>
-                <br>
-                <mat-form-field>
-                  <input matInput placeholder="Name of Company" formControlName="nameOfCompany" >
-                </mat-form-field>
-                <br>
-
-                <mat-form-field>
-                    <input matInput placeholder="Job Title" formControlName="jobTitle" >
-                </mat-form-field>
-                <br>
-
-                <mat-form-field>
-                    <input matInput placeholder="Duration" formControlName="duration" >
-                </mat-form-field>
-                <br>
-                <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form>
-            </mat-step>
-            <mat-step [stepControl]="thirdFormGroup">
-                    <form [formGroup]="thirdFormGroup">
-                      <ng-template matStepLabel>Educational qualifications</ng-template>
-                      <mat-form-field>
-                        <input matInput placeholder="Name of School" formControlName="nameOfSchool" >
-                      </mat-form-field>
-                      <br>
-
-                      <mat-form-field>
-                        <input matInput placeholder="Duration" formControlName="schoolDuration" >
-                      </mat-form-field>
-                      <br>
-
-                      <mat-form-field>
-                        <input matInput placeholder="Location" formControlName="schoolLocation" >
-                      </mat-form-field>
-                      <br>
-                      <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
-                      </div>
-                    </form>
-            </mat-step>
-            <br>
-            <mat-step [stepControl]="fourthFormGroup">
-                <form [formGroup]="fourthFormGroup">
-                <ng-template matStepLabel>Educational Qualifications</ng-template>
-
-              <mat-form-field>
-                <input matInput placeholder="Name of University" formControlName="nameOfUniversity" >
-              </mat-form-field>
-              <br>
-
-              <mat-form-field>
-                <input matInput placeholder="Degree" formControlName="degree" >
-              </mat-form-field>
-              <br>
-
-              <mat-form-field>
-                <input matInput placeholder="Course of Study" formControlName="courseOfStudy" >
-              </mat-form-field>
-              <br>
-
-              <mat-form-field>
-                <input matInput placeholder="Duration" formControlName="universityDuration" >
-              </mat-form-field>
-              <br>
-
-              <mat-form-field>
-                <input matInput placeholder="Location" formControlName="universityLocation" >
-              </mat-form-field>
-              <br>
-              You are now done.
-              <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
-                <button mat-button (click)="getData()">Register</button>
+      <div class="bg">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <form class="form"> 
+            <h5>Personal Details</h5>
+            <div class="form-group">
+              <input type="text" class="form-control" id="firstName" placeholder="First name">
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" id="lastName" placeholder="Last name">
               </div>
-            </form>
-            </mat-step>
-          </mat-horizontal-stepper>
-          
+    
+            <div class="form-group">
+                <input type="text" class="form-control" id="address" placeholder="Address">
+            </div>
+            
+            <h5>Work Experience</h5>
+            <div class="form-group">
+              <input type="text" class="form-control" id="nameOfCompany" placeholder="Name of Company">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="jobTitle" placeholder="Job Title">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="duration" placeholder="Duration">
+            </div>
+    
+            <h5>Educational qualifications</h5>
+            <div class="form-group">
+              <input type="text" class="form-control" id="nameOfSchool" placeholder="Name of School">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="schoolDuration" placeholder="Duration">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="schoolLocation" placeholder="Location">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="nameOfUniversity" placeholder="Name of University">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="degree" placeholder="Degree">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="courseOfStudy" placeholder="Course of Study">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="universityDuration" placeholder="Duration">
+            </div>
+    
+            <div class="form-group">
+              <input type="text" class="form-control" id="universityLocation" placeholder="Location">
+            </div>
+
+            <button mat-stroked-button color="primary" routerLink="login" class="mar-but" mat-raised-button>Submit</button>
+          </form>
+    
+        </div>
+        <div class="col"></div>
+      </div> 
+    </div>
     </body>
 </html>
