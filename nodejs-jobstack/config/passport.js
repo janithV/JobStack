@@ -9,7 +9,7 @@ connection.query('USE ' + dbconfig.database);
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done){
-  done(null, user.id);
+  done(null, user.userId);
  });
 
  passport.deserializeUser(function(id, done){
@@ -130,13 +130,8 @@ else{
 
      connection.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
-        if(err){
-          console.log(err);
-        }
-        else{
        newUserMysql.id = rows.insertId;
        return done(null, newUserMysql);
-        }
       });
     }
    });
@@ -159,10 +154,10 @@ else{
     if(!rows.length){
      return done(null, false, req.flash('loginMessage', 'No User Found'));
     }
-    // if(!bcrypt.compareSync(password, rows[0].password))
-    //  return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-     if(this.password != null) {return bcrypt.compareSync(password, this.password);
-     } else {return false; } 
+
+    if(!bcrypt.compareSync(password, rows[0].userPassword))
+     return done(null, false, req.flash('loginMessage', 'Wrong Password'));
+    
     return done(null, rows[0]);
    });
   })
