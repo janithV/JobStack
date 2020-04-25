@@ -1,20 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Login Register</title>
- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<html>
+	<head>
+		<title>Profile | Welcome <%= user.userEmail %> </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/Page_Editor.css">
+		<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet" type= "text/css">
+		<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+		<script src="JS/Font-size.js"></script><!--importing custom fonts, javascript and css files-->
+		
+		<style>
+			body {
+				background-image:url("Images/page editor amresh.jpg");
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="box1">
+				<div class="heading">
+					Amresh Jayakumar (student 4)<!--main header-->
+				</div>
+
+				
+				<div class="Introduction">
+					<div class="sections">
+						<h1 class="sub">About me</h1>
+						<p class="paragraph">
+							I am an ambitious photographer and graphic designer, which means that I 
+							am able to work under pressure, deal with deadlines and produce excellent 
+							results within a limited time. As an individual I like to look at things 
+							in a different perspective which help a lot when it comes to working in teams.
+							<br>And finally a saying I follow : Stop Thinking...Start Doing...
+						</p><!--about me descriptions-->
+					</div>
+
+					<div class="sections">
+						<h1 class="sub">Education</h1>
+						<p class="paragraph">
+							<span>I successfully completed my education of G.C.E AS & A/L at Lyceum International School Wattala</span><br>
+							<span class="subsub"><b>Higher Education : <%= user.school %> </b></span>  <br>
+							<span>I am currently an under-graduate at the Informatics Institute Of Technology, studying 
+									<b><%= user.degreeId %>e</b> starting from year 2019.</span>
+						</p><!--education-->
+					</div>
+
+					<div class="sections">
+						<h1 class="sub">Talents and Attributes</h1>
+						<p class="paragraph"> 
+							<ul class="paragraph">
+								<li>Photography</li>
+								<li>Video-graphy</li>
+								<li>Editing</li>
+							</ul><br>
+						</p><!---more descriptions - talents & attributes-->
+					</div>
+					
+					<div class="sections">
+						<h1 class="sub">Clubs And Associations</h1>
+						<p class="paragraph">
+							One of the founding members of the very first Media Club of the Informatics Institute of Technology.
+							<br>An active member of the Rotaract Club of Informatics Institute Of Technology from 
+							year 2019, contributing to many projects so far.
+						</p>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="top">
+
+			
+				<div class="nested">
+					<div>
+						<br><div class="bold">Address:</div> No.10 2/3 37th Lane, Wellawatte
+					</div><br>
+					
+					<div>
+						<br><div class="bold">Phone:</div> 076 016 7726
+					</div><br>
+					
+					<div class="mail">
+						<br><div class="bold">Email:</div><a href="mailto:amresh.2019130@iit.ac.lk">amresh.2019130@iit.ac.lk</a>
+					</div><br>
+					
+					<div class="insta">
+						<p>Instagram</p><p class="hover" onclick="location.href='https://www.instagram.com/amr3sh_6/'">@amr3sh_6</p> 
+					</div>
+					
+					<div class="facebook">
+						<p>Facebook</p></i><p class="hover" onclick="location.href='https://www.facebook.com/amresh.jayakumar.6'">Amresh Jayakumar</p>
+					</div><!--personal information and social media-->
+						
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+ <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
  <link rel="stylesheet" 
- href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
- <style>
-  html{
-   padding:50px;
-  }
- </style>
-</head>
-<body>
+ href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
+
+<!-- <body>
  <div class="container">
   <div class="page-header text-center">
    <h1>My Profile</h1>
@@ -24,7 +119,7 @@
   <div class="row">
    <div class="col-sm-12">
     <div class="well">
-     <h3><span class="fa fa-user"></span> Welcome <%= user.username %></h3>
+     <h3><span class="fa fa-user"></span> Welcome <%= user.userEmail %></h3>
 
      <p>
       <strong> <%= user.id %> </strong> 
@@ -34,5 +129,4 @@
    </div>
   </div>
  </div>
-</body>
-</html>
+</body> -->

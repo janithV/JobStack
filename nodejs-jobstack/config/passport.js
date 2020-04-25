@@ -2,18 +2,23 @@ var LocalStrategy = require("passport-local").Strategy;
 
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
-var dbconfig = require('./database');
-var connection = mysql.createConnection(dbconfig.connection);
+var con = require('./db');
 
-connection.query('USE ' + dbconfig.database);
+//con.query('USE ' + con.database);
+
+con.connect((err) => {
+  if(err) throw err;
+  console.log("Database connected");
+});
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done){
-  done(null, user.userId);
+   id = user;
+  done(null, user);
  });
 
- passport.deserializeUser(function(id, done){
-  connection.query("SELECT * FROM UserTable WHERE userId = ? ", [id],
+ passport.deserializeUser(function(user, done){
+  con.query("SELECT * FROM UserTable WHERE userId = ? ", [user.userId],
    function(err, rows){
     done(err, rows[0]);
    });
@@ -95,7 +100,7 @@ else{
   uiux = 0;  
 }
 
-   connection.query("SELECT * FROM UserTable WHERE userEmail = ? ",                                  
+   con.query("SELECT * FROM UserTable WHERE userEmail = ? ",                                  
    [username], function(err, rows){
     if(err)
      return done(err);
@@ -128,7 +133,7 @@ else{
 
      var insertQuery = "INSERT INTO UserTable (userFirstName, userLastName, school, university, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelopment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
-     connection.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
+     con.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
        newUserMysql.id = rows.insertId;
        return done(null, newUserMysql);
@@ -146,7 +151,7 @@ else{
    passReqToCallback: true
   },
   function(req, username, password, done){
-   connection.query("SELECT * FROM UserTable WHERE userEmail = ? ", [username],
+   con.query("SELECT * FROM UserTable WHERE userEmail = ? ", [username],
    function(err, rows){
     if(err)
      return done(err);
