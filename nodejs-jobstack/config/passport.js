@@ -12,11 +12,12 @@ con.connect((err) => {
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done){
-  done(null, user);
+  done(null, user.userId);
  });
 
  passport.deserializeUser(function(user, done){
-  con.query("SELECT * FROM UserTable WHERE userId = 1 ", [user],
+   console.log(user);
+  con.query("SELECT * FROM UserTable WHERE userId = ? ", [user],
    function(err, rows){
     done(err, rows[0]);
    });
@@ -133,7 +134,7 @@ else{
 
      con.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
-       newUserMysql.id = rows.insertId;
+       newUserMysql.userId = rows.insertId;
        return done(null, newUserMysql);
       });
     }
@@ -161,7 +162,7 @@ else{
     if(!bcrypt.compareSync(password, rows[0].userPassword))
      return done(null, false, req.flash('loginMessage', 'Wrong Password'));
     
-    return done(null,rows[0].userId);
+    return done(null,rows[0]);
    });
   })
  );
