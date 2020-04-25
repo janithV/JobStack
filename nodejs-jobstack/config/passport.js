@@ -4,7 +4,6 @@ var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var con = require('./db');
 
-//con.query('USE ' + con.database);
 
 con.connect((err) => {
   if(err) throw err;
@@ -13,12 +12,11 @@ con.connect((err) => {
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done){
-   id = user;
   done(null, user);
  });
 
  passport.deserializeUser(function(user, done){
-  con.query("SELECT * FROM UserTable WHERE userId = ? ", [user.userId],
+  con.query("SELECT * FROM UserTable WHERE userId = 1 ", [user],
    function(err, rows){
     done(err, rows[0]);
    });
@@ -163,7 +161,7 @@ else{
     if(!bcrypt.compareSync(password, rows[0].userPassword))
      return done(null, false, req.flash('loginMessage', 'Wrong Password'));
     
-    return done(null, rows[0]);
+    return done(null,rows[0].userId);
    });
   })
  );

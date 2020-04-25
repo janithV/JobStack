@@ -7,10 +7,10 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-con.connect((err) => {
-    if(err) throw err;
-    console.log("Database connected");
-})
+// con.connect((err) => {
+//     if(err) throw err;
+//     console.log("Database connected");
+// });
 
 module.exports = app;
 
