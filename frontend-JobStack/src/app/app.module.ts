@@ -20,6 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SegmentModule } from 'ngx-segment-analytics';
+import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
 
 
@@ -30,6 +31,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { AuthService } from './services/auth.service';
+import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,17 +41,18 @@ import { RegisterComponent } from './register/register.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     AppRoutingModule,
+    HttpClientModule,
     MatNativeDateModule,
     HammerModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
-    AppRoutingModule,
     MatListModule,
     MatButtonModule,
     MatDialogModule,
@@ -64,7 +69,9 @@ import { RegisterComponent } from './register/register.component';
     SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true, loadOnInitialization: true })
 
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
