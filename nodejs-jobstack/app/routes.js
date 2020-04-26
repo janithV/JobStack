@@ -1,4 +1,7 @@
-module.exports = function(app, passport) {
+module.exports = function(app, passport) { 
+ require("../config/updateProfile"); 
+ var con = require('../config/db');
+ var currentUser = 0;
  app.get('/', function(req, res){
   res.render('index.ejs');
  });
@@ -21,6 +24,35 @@ module.exports = function(app, passport) {
    res.redirect('/');
   });
 
+  app.get('/update', function(req, res){
+    res.render('update.ejs', {
+        user:req.user
+    });
+   });
+  
+  app.post('/update', isLoggedIn, function (req,res) {
+    currentUser = req.user;
+    var updateUserMysql = { 
+      birthdate: req.body.dob,
+      gender: req.body.gender,
+      university: req.body.university,
+      school: req.body.school,
+      qualification: req.body.degree,
+     };
+     console.log(updateUserMysql);
+  
+    var query = "UPDATE UserTable SET school = ?, university = ?, dateOfBirth = ?, gender = ? WHERE userId = ?;";
+    
+    con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, req.user.userId],
+      function(err, rows){
+        if (err) console.log(err); 
+        return (null, updateUserMysql);
+      });
+
+      res.redirect('/profile');
+
+  });
+
  app.get('/signup', function(req, res){
   res.render('signup.ejs', {message: req.flash('signupMessage')});
  });
@@ -32,6 +64,8 @@ module.exports = function(app, passport) {
  }));
 
  app.get('/profile', isLoggedIn, function(req, res){
+   currentUser = req.user;
+   module.exports.currentUser = currentUser;
   res.render('profile.ejs', {
    user:req.user
   });
@@ -40,11 +74,13 @@ module.exports = function(app, passport) {
  app.get('/logout', function(req,res){
   req.logout();
   res.redirect('/');
- });
+ }
+ );
+
 };
 
 function isLoggedIn(req, res, next){
- if(req.isAuthenticated())
+ if(req.isAuthenticated()) 
   return next();
 
  res.redirect('/');

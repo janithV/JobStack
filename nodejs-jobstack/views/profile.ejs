@@ -3,13 +3,13 @@
 	<head>
 		<title>Profile | Welcome <%= user.userEmail %> </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/Page_Editor.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/Page_Editor.css">
 		<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet" type= "text/css">
 		<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet"> -->
 		<script src="JS/Font-size.js"></script><!--importing custom fonts, javascript and css files-->
 		
 		<style>
@@ -27,7 +27,7 @@
 		<div class="wrapper">
 			<div class="box1">
 				<div class="heading">
-					Amresh Jayakumar (student 4)<!--main header-->
+					<%= user.userEmail %><!--main header-->
 				</div>
 
 				
@@ -35,6 +35,7 @@
 					<div class="sections">
 						<h1 class="sub">About me <%= user.userId %></h1>
 						<p class="paragraph">
+							<a href="/update" class="btn btn-lg btn-success">Login</a>
 							I am an ambitious photographer and graphic designer, which means that I 
 							am able to work under pressure, deal with deadlines and produce excellent 
 							results within a limited time. As an individual I like to look at things 
@@ -46,10 +47,10 @@
 					<div class="sections">
 						<h1 class="sub">Education</h1>
 						<p class="paragraph">
-							<span>I successfully completed my education of G.C.E AS & A/L at Lyceum International School Wattala</span><br>
-							<span class="subsub"><b>Higher Education : <%= user.school %> </b></span>  <br>
+							<span>I successfully completed my education of G.C.E AS & A/L at <%= user.school %></span><br>
+							<span class="subsub"><b>Higher Education : <%= user.university %> </b></span>  <br>
 							<span>I am currently an under-graduate at the Informatics Institute Of Technology, studying 
-									<b><%= user.userEmail %>e</b> starting from year 2019.</span>
+									starting from year 2019.</span>
 						</p><!--education-->
 					</div>
 
