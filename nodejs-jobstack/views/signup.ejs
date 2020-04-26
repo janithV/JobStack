@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Login Register</title>
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+ <link rel="stylesheet" 
+ href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+ <style>
+  html{
+   padding:50px;
+  }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+   <h2>Register</h2>
+
+   <% if(message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div> 
+   <% } %>
+
+   <form action="/signup" method="post">
+       
+    <div class="form-group">
+        <div class="form-group">
+            <label>Frist Name</label>
+         <input type="text" class="form-control" name="fname">
+        </div>
+        <div class="form-group">
+        <label>Last Name</label>
+         <input type="text" class="form-control" name="lname">
+        </div>
+        <div class="form-group">
+        <label>Date of Birth</label>
+         <input type="date" class="form-control" name="dob">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <select name = "gender">
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+               
+            </select>    
+            <!-- <input type="text" class="form-control" name="qualification"> -->
+           </div>
+     <label>Email</label>
+     <input type="text" class="form-control" name="username">
+    </div>
+    <div class="form-group">
+     <label>Password</label>
+     <input type="text" class="form-control" name="password">
+    </div>
+    <div class="form-group">
+        <label>Name of University</label>
+     <input type="text" class="form-control" name="university">
+    </div>
+    <div class="form-group">
+        <label>Name of School</label>
+     <input type="text" class="form-control" name="school">
+    </div>
+    <div class="form-group">
+        <label>Degree Qualification</label>
+        <select name = "degree">
+            <option value = "DID01">Software Engineeing</option>
+            <option value = "DID02">Business Information Systems</option>
+            <option value = "DID03">Computer Science</option>
+            <option value = "DID04">Information Systems</option>
+        </select>    
+        <!-- <input type="text" class="form-control" name="qualification"> -->
+       </div>
+       <div class="form-group">
+        <label>Skills</label><br>
+        <input type="checkbox" name="codingskills" value="1">
+        <label> Coding Skills</label><br>
+        <input type="checkbox" name="socialskills" value="1">
+        <label> Social Skills</label><br>
+        <input type="checkbox" name="webskills" value="1">
+        <label> Web Development</label><br>
+        <input type="checkbox" name="languageskills" value="1">
+        <label> Language Skills</label><br>
+        <input type="checkbox" name="programeskills" value="1">
+        <label> Program Development</label><br>
+       </div>
+
+       <div class="form-group">
+        <label>Specialization</label><br>
+        <input type="checkbox" name="Specialization1" value="1">
+        <label> Back End Development</label><br>
+        <input type="checkbox" name="Specialization2" value="1">
+        <label> Front End Development</label><br>
+        <input type="checkbox" name="Specialization3" value="1">
+        <label> Fullstack Development</label><br>
+        <input type="checkbox" name="Specialization4" value="1">
+        <label> Mobile Development</label><br>
+        <input type="checkbox" name="Specialization5" value="1">
+        <label> Web Development</label><br>
+        <input type="checkbox" name="Specialization6" value="1">
+        <label> UI/UX </label><br>
+       </div> 
+            
+
+    <button type="submit" class="btn btn-succcess btn-lg">Register</button>
+   </form>
+
+   <hr>
+
+   <p>Go Back <a href="/">Home</a>.</p>
+  </div>
+ </div>
+</body>
+</html>
