@@ -1,0 +1,30 @@
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$background-moredark: rgb(76, 50, 138);
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.jumbotron {
+    @include zero-margin(70px,30px);
+    background-image: url("/assets/images/homebg.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color:floralwhite;
+    min-height: 150px;
+}
+.intro{
+    padding:35px;
+    background-color: floralwhite;
+
+}
+
+.active{
+    background: $background-moredark;
+}

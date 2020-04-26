@@ -1,0 +1,105 @@
+<div class="container" fxFlex  fxFlexLayoutGap="20px" >
+    <mat-card class="form-size">
+        <h1>Register</h1>
+    <!-- <p>{{registerForm.value | json}}{{registerForm.status | json}}</p> -->
+    <form novalidate [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <p>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="username" placeholder="Username" type="text" required>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="password" placeholder="Password" type="password" required>
+        </mat-form-field>
+    </p>
+
+    <p>
+    <mat-form-field class="half-width">
+        <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+    </mat-form-field>
+    <mat-form-field class="half-width">
+        <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+    </mat-form-field>
+    </p>
+
+    <table>
+        <tr>
+            <td>
+                <mat-label>Choose a date</mat-label>
+                <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>  
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field class="half-width">
+                    <mat-select placeholder="Gender" formControlName="gender">
+                        <mat-option *ngFor="let gender of gender" [value]="gender">
+                          {{ gender }}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field class="half-width">
+                    <input matInput formControlName="companyName" placeholder="Name of the Company" type="text">
+                </mat-form-field>
+                <mat-form-field class="half-width">
+                    <input matInput formControlName="jobTitle" placeholder="Previous job title" type="text" >
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field  class="half-width">
+                    <input matInput formControlName="nameOfSchool" placeholder="Name of School" type="text">
+                </mat-form-field >
+                <mat-form-field  class="half-width">
+                    <input matInput formControlName="nameOfUni" placeholder="Name of University" type="text" >
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Skills</h3>
+                <mat-list *ngFor="let skill of skills">
+                        <mat-checkbox  formControlName="skills">{{skill}}</mat-checkbox>
+                </mat-list>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-select placeholder="Degree of Qualification" formControlName="degreeQual">
+                        <mat-option *ngFor="let degree of degreeQual" [value]="degree">
+                            {{ degree }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-select placeholder="Specialization" formControlName="specialization">
+                        <mat-option *ngFor="let special of specialization" [value]="special">
+                            {{ special }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+        
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
+    </mat-card>
+    
+  </div>
