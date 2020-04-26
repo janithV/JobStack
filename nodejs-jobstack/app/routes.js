@@ -1,5 +1,5 @@
-module.exports = function(app, passport) { 
- require("../config/updateProfile"); 
+module.exports = function(app, passport,) { 
+var express = require('express');
  var con = require('../config/db');
  var currentUser = 0;
  app.get('/', function(req, res){
@@ -24,34 +24,13 @@ module.exports = function(app, passport) {
    res.redirect('/');
   });
 
-  app.get('/update', function(req, res){
-    res.render('update.ejs', {
-        user:req.user
-    });
-   });
-  
-  app.post('/update', isLoggedIn, function (req,res) {
-    currentUser = req.user;
-    var updateUserMysql = { 
-      birthdate: req.body.dob,
-      gender: req.body.gender,
-      university: req.body.university,
-      school: req.body.school,
-      qualification: req.body.degree,
-     };
-     console.log(updateUserMysql);
-  
-    var query = "UPDATE UserTable SET school = ?, university = ?, dateOfBirth = ?, gender = ? WHERE userId = ?;";
-    
-    con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, req.user.userId],
-      function(err, rows){
-        if (err) console.log(err); 
-        return (null, updateUserMysql);
-      });
+  const router = require('../config/updateProfile');
 
-      res.redirect('/profile');
+  app.use(router);
 
-  });
+  const routerRateForm = require('../config/app');
+
+  app.use(routerRateForm);
 
  app.get('/signup', function(req, res){
   res.render('signup.ejs', {message: req.flash('signupMessage')});

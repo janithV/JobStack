@@ -1,24 +1,45 @@
-var route = require('../app/routes.js');
-var express = require('express');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var app = express();
+
+const express = require('express');
+const router = express.Router();
 var con = require('./db');
 
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({
- extended: true
-}));
+router.get('/update', function(req, res){
+    res.render('update.ejs', {
+        user:req.user
+    });
+   });
+  
+  router.post('/update', isLoggedIn, function (req,res) {
+    currentUser = req.user;
+    var updateUserMysql = { 
+      birthdate: req.body.dob,
+      gender: req.body.gender,
+      university: req.body.university,
+      school: req.body.school,
+      qualification: req.body.degree,
+     };
+     console.log(updateUserMysql);
+  
+    var query = "UPDATE UserTable SET school = ?, university = ?, dateOfBirth = ?, gender = ? WHERE userId = ?;";
+    
+    con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, req.user.userId],
+      function(err, rows){
+        if (err) console.log(err); 
+        return (null, updateUserMysql);
+      });
 
-app.set('view engine', 'ejs');
+      res.redirect('/profile');
 
-module.exports = function(){
+  });
 
+  function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()) 
+     return next();
+   
+    res.redirect('/');
+   }
 
-};
-
+  module.exports = router;
 
 
 
