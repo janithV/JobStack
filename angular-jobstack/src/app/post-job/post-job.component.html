@@ -1,63 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Post Job</title>
-        <style>
-            body,
-            html {
-                height: 100%;
-            }
+    <head>
+        <title>Post Job</title>
 
-            .col{
-                margin-top: 110px;
-                margin-right: 50px;
-                margin-left: 70px;
-            }
-
-            .col-sub2 {
-                /* The image used */
-                background-image: url("assets/images/sign.png");
-                /* Full height */
-                height: 110%;
-                /* Center and scale the image nicely */
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 25px;
-
-                
-            }
-
-            .mar-but{
-                float:right;
-                margin-top: 5px;
-                margin-right: 70px;
-                width: 100px;
-                height: 40px;
-            }
-
-            h2{
-                color: black;
-                text-align: center;
-                padding-bottom: 20px;
-            }
-
-            .img-employee{
-                margin-left: 110px;
-                margin-top: 70px;
-            }
-
-            .example-form {
-                min-width: 150px;
-                max-width: 500px;
-                width: 100%;
-            }
-
-            .example-full-width {
-                width: 100%;
-            }
-
-        </style>
-    
     </head>
     <body>
         <div class="bg">
@@ -69,45 +14,32 @@
                     <div class="col-sub1">
                     <h2>Post Your Job Here!</h2>
                     
-                    <form class="example-form">
-                      
+                    <form class="form">  
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Company Name">
+                        </div>
                         
-                          <mat-form-field class="example-full-width">
-                            <mat-label>Company Name</mat-label>
-                            <input matInput>
-                          </mat-form-field>
-                                                
-                        <p>
-                          <mat-form-field class="example-full-width">
-                            <mat-label>Job Title</mat-label>
-                            <textarea matInput></textarea>
-                          </mat-form-field>
-                        </p>
-                      
-                        <p>
-                            <mat-form-field class="example-full-width">
-                              <mat-label>Location</mat-label>
-                              <textarea matInput></textarea>
-                            </mat-form-field>
-                          </p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Job Title">
+                          </div>
 
-                          <p>
-                            <mat-form-field class="example-full-width">
-                              <mat-label>Job Requirement</mat-label>
-                              <textarea matInput></textarea>
-                            </mat-form-field>
-                          </p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+                        </div>
                         
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Job Requirement"></textarea>
+                        </div>
                       </form>
-                      
 
-                      <button mat-stroked-button color="primary" routerLink="login" class="mar-but" mat-raised-button>Post Job</button>
+
+                      <button class="button" >Post Job</button>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="col-sub2">
-                        
+                        <img src="assets/images/post-job.jpg" alt="post-job" class="post-job">
                     </div>
                 </div>
             </div>
