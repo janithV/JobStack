@@ -9,6 +9,7 @@
             background-image: url("assets/images/sign.png");
             
             height: 150%;
+            max-width: 99%;
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
@@ -16,28 +17,7 @@
             opacity: 0.8;
       }
 
-      .form{
-                margin-left: 30px;
-                margin-right: 30px;
-                margin-top: 50px;
-                margin-bottom: 50px;
-                margin: 5%;
-                font-weight: bold;
-                color: #000000;
-      }
-
-      h5{
-        text-align: center;
-        color: black;
-      }
-
-      .mar-but{
-                float:right;
-                margin-top: 5px;
-                margin-right: 5px;
-                width: 100px;
-                height: 40px;
-      }
+      
     </style>
     </head>
 
@@ -79,11 +59,11 @@
             </div>
     
             <div class="form-group">
-              <input type="text" class="form-control" id="schoolDuration" placeholder="Duration">
+              <input type="text" class="form-control" id="schoolDuration" placeholder="School Time Duration">
             </div>
     
             <div class="form-group">
-              <input type="text" class="form-control" id="schoolLocation" placeholder="Location">
+              <input type="text" class="form-control" id="schoolLocation" placeholder="School Location">
             </div>
     
             <div class="form-group">
@@ -99,14 +79,14 @@
             </div>
     
             <div class="form-group">
-              <input type="text" class="form-control" id="universityDuration" placeholder="Duration">
+              <input type="text" class="form-control" id="universityDuration" placeholder="University Time Duration">
             </div>
     
             <div class="form-group">
-              <input type="text" class="form-control" id="universityLocation" placeholder="Location">
+              <input type="text" class="form-control" id="universityLocation" placeholder="University Location">
             </div>
 
-            <button mat-stroked-button color="primary" routerLink="login" class="mar-but" mat-raised-button>Submit</button>
+            <button class="button" >Sign Up</button>
           </form>
     
         </div>

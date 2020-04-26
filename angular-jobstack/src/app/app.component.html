@@ -1,13 +1,31 @@
 <mat-toolbar color="primary">
-  
   <mat-toolbar-row>
     <span>JOBSTACK </span>
     <!-- <app-sidenav></app-sidenav> -->
-    <span class="example-spacer"></span>
-    <button mat-stroked-button routerLink="home" class="mar-but" mat-raised-button>Home</button>
-    <button mat-stroked-button routerLink="login" class="mar-but" mat-raised-button>Sign in</button>
-    <button mat-stroked-button routerLink="post-job" class="mar-but" mat-raised-button>Post Job</button>
+     <span class="example-spacer"></span>
+     <button mat-button class="menu-button" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+  <mat-sidenav #sidenav autoFocus ="false"  position="end" [(opened)] = "opened">
+    <a mat-button routerLink="/home">Home</a><br><br>
+    <a mat-button routerLink="/login">Login</a><br><br>
+    <a mat-button routerLink="/sign-up">Sign Up</a><br><br>
+    <a mat-button routerLink="/post-job">Post a Job</a><br><br>
+    <a mat-button routerLink="/home">FAQ</a><br><br>
+    <a mat-button routerLink="/home">Contact Us</a>
+
+    <div class="imgcontainer">
+      <img src="assets/images/work.jpg" alt="image" class="image">
+  </div>
+  </mat-sidenav>
+</mat-sidenav-container>
+

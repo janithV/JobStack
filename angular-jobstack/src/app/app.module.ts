@@ -18,8 +18,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material';
 import { CompanyComponent } from './company/company.component';
+import {MatSidenavModule} from '@angular/material';
 // import { SidenavComponent } from './sidenav/sidenav.component';
-
 
 
 @NgModule({
@@ -49,6 +49,7 @@ import { CompanyComponent } from './company/company.component';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSidenavModule,
     MatCheckboxModule
     
   ],
