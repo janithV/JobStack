@@ -6,11 +6,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost:3000/app/register"
+  private _registerUrl = "http://localhost:3000/api/register"
   constructor(private http: HttpClient) { }
 
   registerUser(user){
 
-    return this.http.post<any>(this._registerUrl,user)
+    this.http.post<any>(this._registerUrl,user)
   }
 }

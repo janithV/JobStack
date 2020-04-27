@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Register } from '../shared/register';
 
 @Component({
   selector: 'app-profile',

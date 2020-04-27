@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Register, Gender, Skills, Specialization, DegreeQual } from '../shared/register';
-import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class RegisterComponent implements OnInit {
   skills = Skills;
   specialization = Specialization;
 
-  constructor(private rg: FormBuilder, private _auth: AuthService) {
+  constructor(private rg: FormBuilder) {
     this.createForm();
    }
 
@@ -46,10 +45,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     this.register = this.registerForm.value;
-    this._auth.registerUser(this.register).subscribe(
-      res=> console.log(res),
-      err=> console.log(err)
-    )
+    console.log(this.register);
     this.registerForm.reset();
     
   }

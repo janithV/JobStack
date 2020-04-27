@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
   }
 
-;
   createForm(){
 
     this.loginForm = this.lg.group({

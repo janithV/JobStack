@@ -34,6 +34,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+   
   ],
   imports: [
     AppRoutingModule,
