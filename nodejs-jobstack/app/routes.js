@@ -1,6 +1,9 @@
-module.exports = function(app, passport,) { 
+module.exports = function(app, passport) { 
 var express = require('express');
  var con = require('../config/db');
+ const router = require('../config/updateProfile');
+ const routerRateForm = require('../config/app');
+ const searchFunc = require('../config/search');
  var currentUser = 0;
  app.get('/', function(req, res){
   res.render('index.ejs');
@@ -24,13 +27,9 @@ var express = require('express');
    res.redirect('/');
   });
 
-  const router = require('../config/updateProfile');
-
   app.use(router);
-
-  const routerRateForm = require('../config/app');
-
   app.use(routerRateForm);
+  app.use(searchFunc);
 
  app.get('/signup', function(req, res){
   res.render('signup.ejs', {message: req.flash('signupMessage')});
