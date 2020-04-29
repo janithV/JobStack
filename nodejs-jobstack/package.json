@@ -1,5 +1,5 @@
 {
- "name": "node-loginregister",
+ "name": "Ajax-Search-Box",
  "main": "server.js",
  "scripts": {
   "start": "node ./server"
@@ -17,5 +17,6 @@
   "nodemon": "^2.0.2",
   "passport": "^0.2.2",
   "passport-local": "^1.0.0"
- }
+ },
+ "version": "1.0.1"
 }

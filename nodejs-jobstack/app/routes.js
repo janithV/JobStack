@@ -3,8 +3,10 @@ var express = require('express');
  var con = require('../config/db');
  const router = require('../config/updateProfile');
  const routerRateForm = require('../config/app');
- const searchFunc = require('../config/search');
+ const searchFunc = require('../config/searchFinal');
  var currentUser = 0;
+ app.use(express.static(__dirname + '/app'));
+
  app.get('/', function(req, res){
   res.render('index.ejs');
  });
