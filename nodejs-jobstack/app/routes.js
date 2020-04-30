@@ -1,4 +1,12 @@
-module.exports = function(app, passport) {
+module.exports = function(app, passport) { 
+var express = require('express');
+ var con = require('../config/db');
+ const router = require('../config/updateProfile');
+ const routerRateForm = require('../config/app');
+ const searchFunc = require('../config/searchFinal');
+ var currentUser = 0;
+ app.use(express.static(__dirname + '/app'));
+
  app.get('/', function(req, res){
   res.render('index.ejs');
  });
@@ -21,6 +29,10 @@ module.exports = function(app, passport) {
    res.redirect('/');
   });
 
+  app.use(router);
+  app.use(routerRateForm);
+  app.use(searchFunc);
+
  app.get('/signup', function(req, res){
   res.render('signup.ejs', {message: req.flash('signupMessage')});
  });
@@ -32,6 +44,8 @@ module.exports = function(app, passport) {
  }));
 
  app.get('/profile', isLoggedIn, function(req, res){
+   currentUser = req.user;
+   module.exports.currentUser = currentUser;
   res.render('profile.ejs', {
    user:req.user
   });
@@ -40,11 +54,13 @@ module.exports = function(app, passport) {
  app.get('/logout', function(req,res){
   req.logout();
   res.redirect('/');
- });
+ }
+ );
+
 };
 
 function isLoggedIn(req, res, next){
- if(req.isAuthenticated())
+ if(req.isAuthenticated()) 
   return next();
 
  res.redirect('/');
