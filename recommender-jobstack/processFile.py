@@ -1,5 +1,5 @@
  
-import urllib2
+import urllib.request
 import json
 
 data = {
@@ -7,25 +7,25 @@ data = {
                 "input1":
                 [
                     {
-                            'userid': "UID2222",   
+                            'userid': "",
                     }
                 ],
                 "input2":
                 [
                     {
-                            'userid': "UID2222",   
-                            'codingskill': "ck0",   
-                            'socialskill': "sk0",   
-                            'languageskill': "ls1",   
-                            'programdev': "pd0",   
-                            'frontenddev': "fe0",   
-                            'backenddev': "be0",   
-                            'fullstack': "fs0",   
-                            'mobiledev': "md1",   
-                            'webdev': "wd0",   
-                            'uiux': "u0",   
-                            'salary': "",   
-                            'degreeid': "DID02",   
+                            'userid': "",
+                            'codingskill': "",
+                            'socialskill': "",
+                            'languageskill': "",
+                            'programdev': "",
+                            'frontenddev': "",
+                            'backenddev': "",
+                            'fullstack': "",
+                            'mobiledev': "",
+                            'webdev': "",
+                            'uiux': "",
+                            'salary': "",
+                            'degreeid': "",
                     }
                 ],
         },
@@ -39,16 +39,16 @@ url = 'https://ussouthcentral.services.azureml.net/workspaces/8d0b84fbc4f24e91b3
 api_key = 'iYv8xdn9oB5wy/grRMJD7o4PYfV/ct6VapqZB+jzBxOb8tZ38hs8aGR/yptrYsTWRvyqN295n4vz3FTPWp4QmQ==' # Replace this with the API key for the web service
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-req = urllib2.Request(url, body, headers)
+req = urllib.request.Request(url, body, headers)
 
 try:
-    response = urllib2.urlopen(req)
+    response = urllib.request.urlopen(req)
 
     result = response.read()
     print(result)
-except urllib2.HTTPError, error:
+except urllib.error.HTTPError as error:
     print("The request failed with status code: " + str(error.code))
 
     # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
     print(error.info())
-    print(json.loads(error.read())) 
+    print(json.loads(error.read().decode("utf8", 'ignore')))
