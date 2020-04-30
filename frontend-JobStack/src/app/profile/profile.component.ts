@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from '../shared/register';
+import { User } from '../auth/user';
 
 @Component({
   selector: 'app-profile',
@@ -13,4 +14,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  users : User;
+  
 }

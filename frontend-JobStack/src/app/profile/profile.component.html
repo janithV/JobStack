@@ -4,11 +4,96 @@ fxLayout="column"
 fxLayoutGap="10px">
 
 <div fxFlex>
-    <table>
+    <mat-grid-list cols="2">
+        <mat-grid-tile  class="profile">
+            <mat-card class="card1">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h1 class="profile-head">Hi Hiruni!<br> Welcome back</h1>
+
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img matListAvatar src="../../assets/images/profile.png" alt="profileImage" width="100">
+                    <br>
+                    <hr>
+                
+                            <p matLine>
+                                <span>Name: </span>
+                            </p>
+                            <p matLine>
+                                <span>Username: </span>
+                            </p>
+                            <p matLine>
+                                <span>Date of Birth: </span>
+                            </p>
+                            <p matLine>
+                                <span>Skills: </span>
+                            </p>
+                            <p matLine>
+                                <span>Specialization: </span>
+                            </p>
+                            <p matLine>
+                                <span>Degree of Qualification: </span>
+                            </p>
+                  
+                </mat-card-content>
+                <mat-card-footer>
+                    <hr>
+                </mat-card-footer>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-grid-list cols="1">
+              
+                    <mat-grid-tile>
+                        
+                            <h2 matLine>Virtusa</h2>
+                        
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        
+                        <h2 matLine>Virtusa</h2>
+                    
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        
+                    <h2 matLine>Virtusa</h2>
+                
+            </mat-grid-tile>
+               
+                    <!-- <mat-card>
+                        <mat-card-header>
+                            <h2 matLine>Sysco Labs</h2>
+                        </mat-card-header>
+                        <mat-card-content>
+                            
+                        </mat-card-content>
+                        <mat-card-footer>
+        
+                        </mat-card-footer>
+                    </mat-card>
+
+                    <mat-card>
+                        <mat-card-header>
+                            <h2 matLine>99x</h2>
+                        </mat-card-header>
+                        <mat-card-content>
+                            
+                        </mat-card-content>
+                        <mat-card-footer>
+        
+                        </mat-card-footer>
+                    </mat-card>
+                -->
+            </mat-grid-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <!-- <table>
         <td class="profile" >
             <div>
-                <h1>Hi Hiruni!<br> Welcome back</h1>
-                <img matListAvatar src="../../assets/images/profile.png" alt="profileImage" width="80">
+                
                 <br>
             </div>
             <div>
@@ -19,7 +104,7 @@ fxLayoutGap="10px">
         <td>
 
         </td>
-    </table>
+    </table> -->
 </div>
 </div>
 
