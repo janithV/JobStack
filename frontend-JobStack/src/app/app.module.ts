@@ -68,7 +68,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-    SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true, loadOnInitialization: true })
+    
 
   ],
   providers: [

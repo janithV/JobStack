@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Register, Gender, Skills, Specialization, DegreeQual } from '../shared/register';
-
+import { AuthService } from '../services/auth.service';
+import { User } from '../auth/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,11 @@ export class RegisterComponent implements OnInit {
   skills = Skills;
   specialization = Specialization;
 
-  constructor(private rg: FormBuilder) {
+  constructor(
+    private rg: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router) {
+      
     this.createForm();
    }
 
@@ -43,9 +49,12 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-    this.register = this.registerForm.value;
+  onSubmit(register){
+    register = this.registerForm.value;
     console.log(this.register);
+    this.authService.register(register).subscribe((res) => {
+      this.router.navigateByUrl('profile');
+    });
     this.registerForm.reset();
     
   }
