@@ -1,9 +1,7 @@
 var LocalStrategy = require("passport-local").Strategy;
 
-var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var con = require('./db');
-
 
 con.connect((err) => {
   if(err) throw err;
