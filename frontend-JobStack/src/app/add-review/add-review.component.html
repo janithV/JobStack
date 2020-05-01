@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    Add Review
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+    <form novalidate [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="username" placeholder="Username" type="text" required>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="password" placeholder="Password" type="password" required>
+        </mat-form-field>
+        
+      </p>
+      <p>
+        <span>Don't have an account? Click <a routerLink="/register" >here to register</a>!</span>
+      </p>
+      
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
