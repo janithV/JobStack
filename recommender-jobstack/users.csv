@@ -1,3 +1,4 @@
+userid,codingskill,socialskill,languageskill,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiux,good,bad,avg,salary,degreeid
 UID01,1,1,0,0,0,0,0,0,0,1,0,1,0,15 000,DID01
 UID02,0,1,0,0,0,0,0,1,0,0,1,0,0,15 000,DID01
 UID03,1,0,0,0,0,0,0,0,0,0,1,0,0,30 000,DID02

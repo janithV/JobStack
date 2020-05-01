@@ -78,7 +78,7 @@ import { AddReviewComponent } from './add-review/add-review.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-    SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true, loadOnInitialization: true })
+    
 
   ],
   providers: [

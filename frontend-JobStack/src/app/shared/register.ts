@@ -14,7 +14,7 @@ export class Register{
     degreeQual: string;
     skills: string;
     specialization: string;
-    token: string;
+    
 
 }
 

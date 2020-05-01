@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { Login } from '../shared/login';
+import { AuthService } from '../services/auth.service';
+import { User } from '../auth/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +14,14 @@ import { Login } from '../shared/login';
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
-  login: Login;
+  
 
-  constructor(private lg: FormBuilder,public dialogRef: MatDialogRef<LoginComponent>) { 
+  constructor(
+    private lg: FormBuilder,
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private authService: AuthService,
+    private router: Router) { 
+
     this.createForm();
   }
 
@@ -29,12 +37,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    this.login = this.loginForm.value;
-    console.log(this.login);
+  onSubmit(login){
+    login = this.loginForm.value;
+    console.log(login);
+    this.authService.signIn(login).subscribe((res)=> {
+      console.log("Logged in!");
+      this.router.navigateByUrl('profile');
+    });
+    
     this.loginForm.reset();
     this.dialogRef.close();
   }
- 
-
 }

@@ -12,6 +12,7 @@ $background-pale: #D1C4E9;
     background-color: $background-light;
     @include zero-margin(20px, 0px);
     color:white;
+    font-family:Roboto,sans-serif;
 }
 
 .btn-facebook {color:#fff!important; background-color:#3b5998!important;}
