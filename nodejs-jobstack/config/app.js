@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const jwt = require('jsonwebtoken');
 var con = require('./db');
 
 
@@ -47,8 +47,18 @@ router.post('/rateindex', function (req, res) {
 
     con.query(insertQuery, [newRating.userId, newRating.company, newRating.date, newRating.salary, newRating.rating, newRating.good, newRating.average, newRating.bad],
         function(err,rows){
-            if (err) console.log(err); 
+          const token = jwt.sign({ newRating }, 'secret_key');
+            if (err) {
+              res.json({success: false});
+            }
+            else{ 
+            res.json({
+              token:token,
+              success:true
+            });
+            }
             return (null, newRating);
+            
         });
     });
 

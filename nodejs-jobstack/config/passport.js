@@ -1,5 +1,5 @@
 var LocalStrategy = require("passport-local").Strategy;
-
+const jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt-nodejs');
 var con = require('./db');
 
@@ -105,34 +105,40 @@ else{
      return done(null, false, req.flash('signupMessage', 'That is already taken'));
     }else{
      var newUserMysql = { 
-      firstname: req.body.fname,
-      lastname: req.body.lname,
-      birthdate: req.body.dob,
-      gender: req.body.gender,
-      username: username,
-      password: bcrypt.hashSync(password, null, null),
-      university: req.body.university,
-      school: req.body.school,
-      qualification: req.body.degree ,
-      codskill: codeskill,
-      socskill: socialskill,
-      webskill: webskill,
-      langskill: langskill,
-      programeskill: programeskill,
-      backend: backend,
-      frontend: frontend,
-      fullstack: fullstack,
-      web: web,
-      mobile: mobile,
-      uiux: uiux
+        id:req.body.userId,
+        username: username,
+        password:password,
+        firstname: req.body.fname,
+        lastname: req.body.lname,
+        birthDate: req.body.dob,
+        gender: req.body.gender,
+        nameOfSchool: req.body.school,
+        nameOfUni: req.body.university,
+        degreeQual: req.body.degree,
+        skills: string,
+        specialization: string
      };
+
      console.log(newUserMysql);
 
      var insertQuery = "INSERT INTO UserTable (userFirstName, userLastName, school, university, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelopment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
      con.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
+       const token = jwt.sign({ newUserMysql }, 'secret_key');
        newUserMysql.userId = rows.insertId;
+       if (err) {
+        res.json({
+          success: false,
+          token: null
+        });
+      }
+      else{ 
+      res.json({
+        token:token,
+        success:true
+      });
+      }
        return done(null, newUserMysql);
       });
     }

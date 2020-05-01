@@ -27,19 +27,23 @@ router.get('/update', function(req, res){
     
     con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, updateUserMysql.username, updateUserMysql.password, req.user.userId],
       function(err, rows){
-        if (err) console.log(err); 
+        if (err) {
+          res.json({success: false});
+        }
+        else{ 
+        res.json({
+          values:updateUserMysql,
+          success:true
+        });
+        }
         return (null, updateUserMysql);
       });
-
-      res.redirect('/profile');
 
   });
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()) 
      return next();
-   
-    res.redirect('/');
    }
 
   module.exports = router;

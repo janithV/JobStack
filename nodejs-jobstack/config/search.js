@@ -175,16 +175,16 @@
       try {
           f = window.localStorage,
           f.setItem("~~~", "!"),
-          f.removeItem("~~~")
+          f.removeItem("~~~");
       } catch (h) {
-          f = null
+          f = null;
       }
       return g = f && window.JSON ? {
           _prefix: function(a) {
               return this.prefix + a
           },
           _ttlKey: function(a) {
-              return this._prefix(a) + this.ttlKey
+              return this._prefix(a) + this.ttlKey;
           },
           get: function(a) {
               return this.isExpired(a) && this.remove(a),

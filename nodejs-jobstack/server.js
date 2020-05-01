@@ -4,6 +4,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var app = express();
+var cors = require("cors");
+const  jwt  =  require('jsonwebtoken');
 var port = process.env.PORT || 8080;
 
 var passport = require('passport');
@@ -11,6 +13,7 @@ var flash = require('connect-flash');
 
 require('./config/passport')(passport);
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({

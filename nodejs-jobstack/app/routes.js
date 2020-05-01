@@ -8,25 +8,22 @@ var express = require('express');
  app.use(express.static(__dirname + '/app'));
 
  app.get('/', function(req, res){
-  res.render('index.ejs');
+  res.send(status = "20");
  });
 
  app.get('/login', function(req, res){
   res.render('login.ejs', {message:req.flash('loginMessage')});
  });
 
- app.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/profile',
-  failureRedirect: '/login',
-  failureFlash: true
- }),
+ app.post('/login', passport.authenticate('local-login'
+ ),
   function(req, res){
    if(req.body.remember){
     req.session.cookie.maxAge = 1000 * 60 * 3;
    }else{
     req.session.cookie.expires = false;
    }
-   res.redirect('/');
+   res.json({success: true})
   });
 
   app.use(router);
@@ -37,23 +34,20 @@ var express = require('express');
   res.render('signup.ejs', {message: req.flash('signupMessage')});
  });
 
- app.post('/signup', passport.authenticate('local-signup', {
-  successRedirect: '/profile',
-  failureRedirect: '/',
-  failureFlash: true
- }));
+ app.post('/signup', passport.authenticate('local-signup'
+ ));
 
  app.get('/profile', isLoggedIn, function(req, res){
    currentUser = req.user;
    module.exports.currentUser = currentUser;
-  res.render('profile.ejs', {
+   res.render('profile.ejs', {
    user:req.user
   });
  });
 
  app.get('/logout', function(req,res){
   req.logout();
-  res.redirect('/');
+  res.json({success: true});
  }
  );
 
@@ -63,5 +57,5 @@ function isLoggedIn(req, res, next){
  if(req.isAuthenticated()) 
   return next();
 
- res.redirect('/');
+ res.json({});
 }
