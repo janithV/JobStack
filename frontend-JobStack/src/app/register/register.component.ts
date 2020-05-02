@@ -149,23 +149,5 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // onCheckboxChange(e){
-
-  //   const skills: FormArray = this.registerForm.get('skills') as FormArray;
-
-  //   if(e.target.checked){
-  //     skills.push(new FormControl(e.target.value));
-  //   }
-  //   else{
-  //     let i: number = 0;
-  //     skills.controls.forEach((item: FormControl) => {
-  //       if (item.value == e.target.value){
-  //         skills.removeAt(i);
-  //         return;
-  //       }
-  //       i++;
-  //     })
-  //   }
-  // }
 
 }

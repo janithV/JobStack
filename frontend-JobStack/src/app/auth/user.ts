@@ -1,5 +1,5 @@
 export interface User {
-    id:number;
+    
     username: string;
     password:string;
     firstname: string;
@@ -14,7 +14,13 @@ export interface User {
     langSkill: boolean;
     webDev: boolean;
     programDev: boolean;
-    specialization: string;
+    backend: boolean;
+    frontend: boolean;
+    fullstack: boolean;
+    web: boolean;
+    mobile: boolean;
+    uiux: boolean;
+    
 }
 
 export const DegreeQual = ['Software Engineering', 'Computer Science','Business Information Systems','Information Systems']
