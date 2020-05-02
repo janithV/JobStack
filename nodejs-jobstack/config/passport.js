@@ -154,7 +154,7 @@ else{
      return done(err);
      
     if(!rows.length){
-     return done(null, false, req.flash('loginMessage', 'No User Found'));
+      
     }
 
     if(!bcrypt.compareSync(password, rows[0].userPassword))

@@ -2,15 +2,11 @@
 const express = require('express');
 const router = express.Router();
 var con = require('./db');
+const jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt-nodejs');
 
-router.get('/update', function(req, res){
-    res.render('update.ejs', {
-        user:req.user
-    });
-   });
   
-  router.post('/update', isLoggedIn, function (req,res) {
+  router.post('/update', function (req,res) {
     currentUser = req.user;
     var updateUserMysql = { 
       username: req.body.username,
@@ -24,22 +20,21 @@ router.get('/update', function(req, res){
      console.log(updateUserMysql);
   
     var query = "UPDATE UserTable SET school = ?, university = ?, dateOfBirth = ?, gender = ?, userEmail = ?, userPassword = ? WHERE userId = ?;";
-    
-    con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, updateUserMysql.username, updateUserMysql.password, req.user.userId],
+    var token = jwt.sign({ updateUserMysql }, 'secret_key');
+    con.query(query,[updateUserMysql.school, updateUserMysql.university, updateUserMysql.birthdate, updateUserMysql.gender, updateUserMysql.username, updateUserMysql.password, 1],
       function(err, rows){
         if (err) console.log(err); 
         return (null, updateUserMysql);
       });
-
-      res.redirect('/profile');
-
+      res.json({
+        success: true,
+        token: token
+    });
   });
 
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()) 
      return next();
-   
-    res.redirect('/');
    }
 
   module.exports = router;

@@ -1,12 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
+const jwt = require('jsonwebtoken');
 var con = require('./db');
 
-
-router.get('/rateindex', function(req,res){
-    res.render('rateindex.ejs');
-});
 
 router.post('/rateindex', function (req, res) {
     var currentUser = req.user;
@@ -32,7 +28,7 @@ router.post('/rateindex', function (req, res) {
       }
     
     var newRating = {
-        userId:currentUser,
+        userId:1,
         company: req.body.company,
         good: Good,
         average: Average,
@@ -44,12 +40,16 @@ router.post('/rateindex', function (req, res) {
     console.log(newRating);
 
     var insertQuery = "INSERT INTO RatingsTable (userId, companyId, dateRated, salary, rating, good, average, bad) values(?,?,?,?,?,?,?,?);";
-
+    var token = jwt.sign({ newRating }, 'secret_key');
     con.query(insertQuery, [newRating.userId, newRating.company, newRating.date, newRating.salary, newRating.rating, newRating.good, newRating.average, newRating.bad],
         function(err,rows){
             if (err) console.log(err); 
             return (null, newRating);
         });
-    });
+        res.json({
+          token:token,
+          success: true
+        });
+      });
 
     module.exports = router;
