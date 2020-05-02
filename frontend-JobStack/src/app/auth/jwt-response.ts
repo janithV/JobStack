@@ -7,8 +7,6 @@ export interface JwtResponse {
         lastname: string;
         birthDate: string;
         gender: string;
-        companyName: string;
-        jobTitle: string;
         nameOfSchool: string;
         nameOfUni: string;
         degreeQual: string;

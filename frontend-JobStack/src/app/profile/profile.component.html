@@ -1,23 +1,18 @@
 
 <div class="container"
-fxLayout="column"
+fxLayout="row"
 fxLayoutGap="10px">
 
 <div fxFlex>
-    <mat-grid-list cols="2">
-        <mat-grid-tile  class="profile">
-            <mat-card class="card1">
+            <mat-card class="profile">
                 <mat-card-header>
                     <mat-card-title>
                         <h1 class="profile-head">Hi Hiruni!<br> Welcome back</h1>
-
+                        <img matListAvatar src="../../assets/images/profile.png" alt="profileImage">
                     </mat-card-title>
                 </mat-card-header>
-                <mat-card-content>
-                    <img matListAvatar src="../../assets/images/profile.png" alt="profileImage" width="100">
+                <mat-card-content> 
                     <br>
-                    <hr>
-                
                             <p matLine>
                                 <span>Name: </span>
                             </p>
@@ -39,28 +34,62 @@ fxLayoutGap="10px">
                   
                 </mat-card-content>
                 <mat-card-footer>
-                    <hr>
+                  
                 </mat-card-footer>
             </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <mat-grid-list cols="1">
-              
-                    <mat-grid-tile>
-                        
-                            <h2 matLine>Virtusa</h2>
-                        
-                    </mat-grid-tile>
-                    <mat-grid-tile>
-                        
-                        <h2 matLine>Virtusa</h2>
-                    
-                </mat-grid-tile>
-                <mat-grid-tile>
-                        
-                    <h2 matLine>Virtusa</h2>
-                
-            </mat-grid-tile>
+</div>
+<div fxFlex fxLayout="column">
+    <form>
+        <mat-form-field>
+          
+          <input matInput type="search" placeholder="Search" >
+          
+        </mat-form-field>
+      </form>
+    
+    
+    <mat-card class="card1">
+        <mat-card-header>
+            <mat-card-title>
+               <h1>Virtusa</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content> 
+            
+        </mat-card-content>
+        <mat-card-footer>
+          
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="card1">
+        <mat-card-header>
+            <mat-card-title>
+               <h1>Virtusa</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content> 
+            
+        </mat-card-content>
+        <mat-card-footer>
+          
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="card1">
+        <mat-card-header>
+            <mat-card-title>
+               <h1>Virtusa</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content> 
+            
+        </mat-card-content>
+        <mat-card-footer>
+          
+        </mat-card-footer>
+    </mat-card>
+</div>
+        
+       
                
                     <!-- <mat-card>
                         <mat-card-header>
@@ -86,9 +115,8 @@ fxLayoutGap="10px">
                         </mat-card-footer>
                     </mat-card>
                 -->
-            </mat-grid-list>
-        </mat-grid-tile>
-    </mat-grid-list>
+            
+   
     
     <!-- <table>
         <td class="profile" >
@@ -105,7 +133,7 @@ fxLayoutGap="10px">
 
         </td>
     </table> -->
-</div>
+
 </div>
 
     

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Register, Gender, Skills, Specialization, DegreeQual } from '../shared/register';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { User } from '../auth/user';
+import { User, Gender, Skills, Specialization, DegreeQual } from '../auth/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,45 +12,12 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  register: Register;
   gender = Gender;
   degreeQual = DegreeQual;
   skills = Skills;
   specialization = Specialization;
+  user: User;
   @ViewChild ('rform') registerFormDirective;
-
-  formErrors = {
-    'username' : '',
-     'password' : '',
-      'firstname':'',
-      'lastname': '',
-      
-  };
-
-  validationMessages = {
-    'username' :{
-      'required' : 'username is required.',
-      'minlength': 'username must be atleast 2 characters',
-      'maxlength': 'username cannot be more that 25 characters'
-    },
-
-    'password' :{
-      'required' : 'password is required.',
-      'minlength': 'password must be atleast 2 characters',
-      'maxlength': 'password cannot be more that 6 characters'
-    },
-    'firstname' :{
-      'required' : 'first name is required.',
-      'minlength': 'first name must be atleast 2 characters',
-      'maxlength': 'first name cannot be more that 25 characters'
-    },
-
-    'lastname' :{
-      'required' : 'last name is required.',
-      'minlength': 'last name must be atleast 2 characters',
-      'maxlength': 'last name cannot be more that 25 characters'
-    },
-  };
 
   constructor(
     private rg: FormBuilder, 
@@ -64,24 +30,92 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(register){
+    register = this.registerForm.value;
+    console.log(this.user);
+    console.log(register);
+    this.authService.register(register).subscribe((res) => {
+      this.router.navigateByUrl('login');
+    });
 
+    this.registerForm.reset();  
+  }
 
+  formErrors = {
+    'username' : '',
+    'password' : '',
+    'firstname':'',
+    'lastname': '',
+    'birthDate':'',
+    'gender': '',
+    'nameOfSchool':'',
+    'nameOfUni': '',
+    'degreeQual': '',
+    'specialization': '',
+      
+  };
+
+  validationMessages = {
+    'username' :{
+      'required' : 'username is required.',
+      'minlength': 'username must be atleast 2 characters',
+      'maxlength': 'username cannot be more that 25 characters',
+      'email': 'username has to be an email'
+    },
+
+    'password' :{
+      'required' : 'password is required.',
+      'minlength': 'password must be atleast 6 characters',
+      'maxlength': 'password cannot be more that 12 characters'
+    },
+    'firstname' :{
+      'required' : 'first name is required.',
+      'minlength': 'first name must be atleast 2 characters',
+      'maxlength': 'first name cannot be more that 25 characters'
+    },
+
+    'lastname' :{
+      'required' : 'last name is required.',
+      'minlength': 'last name must be atleast 2 characters',
+      'maxlength': 'last name cannot be more that 25 characters'
+    },
+
+    'birthDate' :{
+      'required' : 'Birth date is required.',
+    },
+    'gender' :{
+      'required' : 'Please select your gender.',
+    },
+    'nameOfSchool' :{
+      'required' : 'Name of school is required.',
+    },
+    'nameOfUni' :{
+      'required' : 'Name of university is required.',
+    },
+    'degreeQual' :{
+      'required' : 'Please select your degree.',
+    },
+    'specialization' :{
+      'required' : 'Please select your specialization.',
+    },
+    
+  };
+
+  
   createForm(){
 
     this.registerForm = this.rg.group({
-    username: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-    password:['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+    username: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25), Validators.email]],
+    password:['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
     firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
     lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-    birthDate: '',
-    gender: 'Male',
-    companyName: '',
-    jobTitle: '',
-    nameOfSchool: '',
-    nameOfUni: '',
-    degreeQual: 'Software Engineering',
-    skills: 'Coding skills',
-    specialization: 'Back-End Development',
+    birthDate: ['', [Validators.required]],
+    gender: ['', [Validators.required]],
+    nameOfSchool: ['', [Validators.required]],
+    nameOfUni: ['', [Validators.required]],
+    degreeQual:['', [Validators.required]], 
+    skills: [''],
+    specialization: ['', [Validators.required]]
     });
 
     this.registerForm.valueChanges
@@ -90,31 +124,6 @@ export class RegisterComponent implements OnInit {
     this.onValueChanged();
   }
 
-  onSubmit(register){
-    register = this.registerForm.value;
-    console.log(this.register);
-    this.authService.register(register).subscribe((res) => {
-      this.router.navigateByUrl('profile');
-    });
-    this.registerForm.reset({
-        username: '', 
-        password:'',
-        firstname: '', 
-        lastname: '', 
-        birthDate: '',
-        gender: 'Male',
-        companyName: '',
-        jobTitle: '',
-        nameOfSchool: '',
-        nameOfUni: '',
-        degreeQual: 'Software Engineering',
-        skills: 'Coding skills',
-        specialization: 'Back-End Development',
-    })
-
-    this.registerFormDirective.resetForm();
-    
-  }
 
   onValueChanged(data?: any) {
     if (!this.registerForm) { return; }
@@ -135,5 +144,24 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
+
+  // onCheckboxChange(e){
+
+  //   const skills: FormArray = this.registerForm.get('skills') as FormArray;
+
+  //   if(e.target.checked){
+  //     skills.push(new FormControl(e.target.value));
+  //   }
+  //   else{
+  //     let i: number = 0;
+  //     skills.controls.forEach((item: FormControl) => {
+  //       if (item.value == e.target.value){
+  //         skills.removeAt(i);
+  //         return;
+  //       }
+  //       i++;
+  //     })
+  //   }
+  // }
 
 }

@@ -19,7 +19,7 @@ export class AuthService {
 
   register(user: User): Observable<JwtResponse>{
     
-    return this.http.post<JwtResponse>(`${this.AUTH_SERVER}/register`,user).pipe(
+    return this.http.post<JwtResponse>(`${this.AUTH_SERVER}/signup`,user).pipe(
       tap((res: JwtResponse) => {
 
         if(res.user){

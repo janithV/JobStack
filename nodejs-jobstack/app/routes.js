@@ -41,7 +41,10 @@ var express = require('express');
   successRedirect: '/profile',
   failureRedirect: '/',
   failureFlash: true
- }));
+  
+ })
+ //console.log("registered");
+ );
 
  app.get('/profile', isLoggedIn, function(req, res){
    currentUser = req.user;
