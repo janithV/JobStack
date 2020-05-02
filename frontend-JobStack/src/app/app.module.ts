@@ -13,13 +13,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { SegmentModule } from 'ngx-segment-analytics';
 import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
 
@@ -78,7 +78,7 @@ import { AddReviewComponent } from './add-review/add-review.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-    
+   
 
   ],
   providers: [

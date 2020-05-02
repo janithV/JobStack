@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../auth/user';
 import { JwtResponse } from '../auth/jwt-response';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   AUTH_SERVER = 'http://localhost:8080';
   authSubject = new BehaviorSubject(false);
@@ -50,6 +51,7 @@ export class AuthService {
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("EXPIRES_IN");
     this.authSubject.next(false);
+    this.router.navigate(['/home']);
   }
 
   isAuthenticated(){

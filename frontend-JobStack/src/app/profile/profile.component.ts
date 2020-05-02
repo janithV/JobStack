@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Register } from '../shared/register';
+import { AuthService } from '../services/auth.service';
 import { User } from '../auth/user';
 
 @Component({
@@ -9,11 +9,27 @@ import { User } from '../auth/user';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private authService : AuthService) { }
 
   users : User;
+
+  userProfile = {
+
+    username:'',
+    name:'',
+    dob:'',
+    skills:'',
+    specialization:'',
+    degree:'',
+  }
+
+  ngOnInit() {
+
+    
+  }
+
+
+
+
   
 }
