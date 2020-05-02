@@ -33,6 +33,11 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { ProfileComponent } from './profile/profile.component';
+import { CompanyComponent } from './company/company.component';
+import { Wso2ProfileComponent } from './wso2-profile/wso2-profile.component';
+import { SyscolabsProfileComponent } from './syscolabs-profile/syscolabs-profile.component';
+import { VirtusaProfileComponent } from './virtusa-profile/virtusa-profile.component';
+import { AddReviewComponent } from './add-review/add-review.component';
 
 
 @NgModule({
@@ -44,6 +49,11 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    CompanyComponent,
+    Wso2ProfileComponent,
+    SyscolabsProfileComponent,
+    VirtusaProfileComponent,
+    AddReviewComponent,
    
   ],
   imports: [
