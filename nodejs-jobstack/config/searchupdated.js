@@ -33,7 +33,13 @@ app.get('/search1', search1, (req, res)=>{
 var searchResult = req.searchResult;
 res.render('/search1',{
     results: searchResult.length,
-    searchTerm: req.searchTerm
+    searchTerm: req.searchTerm,
+
+
+    searchResult: searchResult,
+    category: req.category
+
+
 })
 
 

@@ -225,7 +225,7 @@
       function a(a) {
           c.bindAll(this),
           a = a || {},
-          this.sizeLimit = a.sizeLimit || 10,
+        
           this.cache = {},
           this.cachedKeysByAge = [];
       }
@@ -351,7 +351,7 @@
               function e(a) {
                   var b = d.filter ? d.filter(a) : a
                     , e = m._processData(b)
-                    , f = e.itemHash
+                    , g = e.itemHash
                     , h = e.adjacencyList;
                   m.storage && (m.storage.set(g.itemHash, f, d.ttl),
                   m.storage.set(g.adjacencyList, h, d.ttl),
@@ -999,3 +999,32 @@
       }
   }()
 }(window.jQuery);
+function search1(req, res, next){
+
+    var searchTerm = req.query.search;
+    var category = req.query.category;
+
+    let query = "SELECT * FROM company"; 
+    if(searchTerm != '' && category!= ''){
+        query = 'SELECT companyName from company'
+    }
+
+    database.query(query, (err, result) => {
+        if (err){
+
+            req.searchResult = '';
+            req.searchTerm = '';
+            req.category = '';
+            
+            next();
+        }
+
+
+        req.searchResult=result;
+        req.searchTerm= searchTerm;
+        req.category= '';
+
+        next();
+
+    });
+}
