@@ -20,12 +20,31 @@ img{
 }
 
 .card1{
-    background-color:rgba(255, 255, 255, 0);
-   
-    
-   
+    background-color:rgba(255, 255, 255, 0);  
 }
 
-.mat-card{
-    margin-top:2px;
+.vimage{
+    background-image:url("../../assets/images/virtusa.jfif");
+    background-size: cover;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.294);
+}
+.simage{
+    background-image:url("../../assets/images/SyscoLABS-logo.png");
+    background-size: cover;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.294);
+}
+.wimage{
+    background-image:url("../../assets/images/WSO2.png");
+    background-size: cover;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.294);
+}
+.nimage{
+    background-image:url("../../assets/images/99x.png");
+    background-size: cover;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.294);
+}
+.uimage{
+    background-image:url("../../assets/images/unilever.jpg");
+    background-size: cover;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.294);
 }

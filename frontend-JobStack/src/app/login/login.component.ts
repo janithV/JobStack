@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     console.log(login);
     this.authService.signIn(login).subscribe((res)=> {
       console.log("Logged in!");
-      this.router.navigateByUrl('profile');
+      this.router.navigate(['/profile']);
     });
     
     this.loginForm.reset();

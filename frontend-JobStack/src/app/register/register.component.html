@@ -62,11 +62,24 @@
         <tr>
             <td>
                 <h3>Skills</h3>
-                <mat-list *ngFor="let skill of skills">
-                        <!-- <mat-checkbox [value]="skill.value" formControlName="skills" (change)="onCheckboxChange($event)">{{skill.name}}</mat-checkbox> -->
-                        <mat-checkbox [value]="skill" formControlName="skills">{{skill}}</mat-checkbox>
-
-                </mat-list>
+                <ol>
+                    <li>
+                        <mat-checkbox  formControlName="codingSkill">Coding Skills</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox  formControlName="socialSkill">Social Skills</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox  formControlName="langSkill">Language Skills</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox  formControlName="webDev">Web Development</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox  formControlName="programDev">Program Development</mat-checkbox>
+                    </li>
+                       
+                </ol>
                 
             </td>
         </tr>

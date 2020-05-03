@@ -1,5 +1,5 @@
 export interface User {
-    id:number;
+    
     username: string;
     password:string;
     firstname: string;
@@ -9,11 +9,20 @@ export interface User {
     nameOfSchool: string;
     nameOfUni: string;
     degreeQual: string;
-    skills: string;
-    specialization: string;
+    codingSkill: boolean;
+    socialSkill: boolean;
+    langSkill: boolean;
+    webDev: boolean;
+    programDev: boolean;
+    backend: boolean;
+    frontend: boolean;
+    fullstack: boolean;
+    web: boolean;
+    mobile: boolean;
+    uiux: boolean;
+    
 }
 
 export const DegreeQual = ['Software Engineering', 'Computer Science','Business Information Systems','Information Systems']
 export const Gender = ['Male', 'Female','Other'];
-export const Skills : Array<any> = ['Coding skills', 'Social skills','Web Development','Language skills', 'Program Development'];
 export const Specialization =['Back-End Development', 'Front-End Development','Fullstack Development','Mobile Development', 'Web Development','UI/UX']
