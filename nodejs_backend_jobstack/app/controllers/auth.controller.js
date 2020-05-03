@@ -147,36 +147,33 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ user }, config.secret, {
-        expiresIn: 86400 // 24 hours
-      });
+      var loggedinUser = {
+        id: user.userId,
+        email: user.userEmail,
+        userFirstName: user.userFirstName,
+        userLastName: user.userLastName,
+        dateOfBirth: user.dateOfBirth,
+        gender: user.gender,
+        school: user.school,
+        university: user.university,
+        degreeId: user.degreeId,
+        codingSkill: user.codingSkill,
+        socialSkill: user.socialSkill,
+        languageSkill: user.languageSkill,
+        programDevelopment: user.programDevelopment,
+        frontEndDevelopment: user.frontEndDevelopment,
+        backEndDevelopment: user.backEndDevelopment,
+        fullStack: user.fullStack,
+        mobileDevelopment: user.mobileDevelopment,
+        webDevelopment: user.webDevelopment,
+        uiUx: user.uiUx};
 
-        res.status(200).send({
-          id: user.userId,
-          email: user.userEmail,
-          userFirstName: user.userFirstName,
-          userLastName: user.userLastName,
-          dateOfBirth: user.dateOfBirth,
-          gender: user.gender,
-          school: user.school,
-          university: user.university,
-          degreeId: user.degreeId,
-          codingSkill: user.codingSkill,
-          socialSkill: user.socialSkill,
-          languageSkill: user.languageSkill,
-          programDevelopment: user.programDevelopment,
-          frontEndDevelopment: user.frontEndDevelopment,
-          backEndDevelopment: user.backEndDevelopment,
-          fullStack: user.fullStack,
-          mobileDevelopment: user.mobileDevelopment,
-          webDevelopment: user.webDevelopment,
-          uiUx: user.uiUx,
-          accessToken:token
-        });
-      })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
+      res.json(loggedinUser);
+
+      // var token = jwt.sign({ user }, config.secret, {
+      //   expiresIn: 86400 // 24 hours
+      // })
+});
 };
 
 exports.update = (req, res) => {
