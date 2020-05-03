@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+var con = require('./db');
+
 function search1(req, res, next){
 
     var searchTerm = req.query.search;
@@ -28,7 +32,7 @@ function search1(req, res, next){
 
 }
 
-app.get('/search1', search1, (req, res)=>{
+router.get('/search1', search1, (req, res)=>{
 
 var searchResult = req.searchResult;
 res.render('/search1',{
@@ -43,6 +47,7 @@ res.render('/search1',{
 })
 
 
+module.exports = router;
 
 
 
