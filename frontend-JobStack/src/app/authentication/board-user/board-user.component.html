@@ -1,0 +1,109 @@
+  <div 
+fxLayout="row"
+fxLayoutGap="10px">
+
+<div fxFlex>
+            <mat-card class="profile">
+                <mat-card-header>
+                    <mat-card-title class="profile-head">
+                      <img mat-card-image src="assets/images/profile.png">
+                    
+                        <h1 ></h1>
+                        
+                        <h2>Welcome to JobStack</h2>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content> 
+                    <br>
+                  
+                        <mat-list>
+                            <mat-list-item> {{user.username}} </mat-list-item>
+                            <mat-list-item> {{user.name}} </mat-list-item>
+                            <mat-list-item> {{user.dob}} </mat-list-item>
+                            <mat-list-item> {{user.gender}} </mat-list-item>
+                            <mat-list-item> {{user.school}} </mat-list-item>
+                            <mat-list-item> {{user.university}} </mat-list-item>
+                            <mat-list-item> {{user.degree}} </mat-list-item>
+                            <mat-list-item> {{user.skills}} </mat-list-item>
+
+                        </mat-list>            
+                  
+                </mat-card-content>
+                <mat-card-footer>
+                  
+                </mat-card-footer>
+            </mat-card>
+</div>
+<div fxFlex fxLayout="column" fxLayoutGap="2px">
+    
+    <form>
+        <mat-form-field>
+          
+          <input matInput class="form-control" type="search" placeholder="Search" >
+          
+        </mat-form-field>
+      </form>
+      <span class="recom">
+        <h2>Your Recommendations!</h2>
+      </span>
+       
+     
+    <mat-card class="card1">
+      
+        <mat-card-header>
+            <div mat-card-avatar class="vimage"></div>
+            <mat-card-title>Virtusa</mat-card-title>
+            <mat-card-subtitle>Company - Public</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="card1">
+        <mat-card-header>
+            <div mat-card-avatar class="simage"></div>
+            <mat-card-title>Sysco Labs</mat-card-title>
+            <mat-card-subtitle>Company - Private</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="card1">
+        <mat-card-header>
+            <div mat-card-avatar class="wimage"></div>
+            <mat-card-title>Wso2</mat-card-title>
+            <mat-card-subtitle>Company - Private</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="card1">
+      <mat-card-header>
+          <div mat-card-avatar class="nimage"></div>
+          <mat-card-title>99x Technologies</mat-card-title>
+          <mat-card-subtitle>Company - Private</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+      </mat-card-content>
+  </mat-card>
+  <mat-card class="card1">
+      <mat-card-header>
+          <div mat-card-avatar class="uimage"></div>
+          <mat-card-title>Unilever</mat-card-title>
+          <mat-card-subtitle>Company - Private</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        </mat-card-content>
+        </mat-card>
+        
+</div>               
+</div>
+
+
+    
+
+   
+

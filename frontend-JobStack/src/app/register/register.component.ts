@@ -33,9 +33,9 @@ export class RegisterComponent implements OnInit {
     register = this.registerForm.value;
     console.log(this.user);
     console.log(register);
-    this.authService.register(register).subscribe((res) => {
-      this.router.navigateByUrl('login');
-    });
+    // this.authService.register(register).subscribe((res) => {
+    //   this.router.navigateByUrl('login');
+    // });
 
     this.registerForm.reset();  
   }
