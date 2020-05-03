@@ -147,29 +147,6 @@ exports.signin = (req, res) => {
         });
       }
 
-      var loggedinUser = {
-        id: user.userId,
-        email: user.userEmail,
-        userFirstName: user.userFirstName,
-        userLastName: user.userLastName,
-        dateOfBirth: user.dateOfBirth,
-        gender: user.gender,
-        school: user.school,
-        university: user.university,
-        degreeId: user.degreeId,
-        codingSkill: user.codingSkill,
-        socialSkill: user.socialSkill,
-        languageSkill: user.languageSkill,
-        programDevelopment: user.programDevelopment,
-        frontEndDevelopment: user.frontEndDevelopment,
-        backEndDevelopment: user.backEndDevelopment,
-        fullStack: user.fullStack,
-        mobileDevelopment: user.mobileDevelopment,
-        webDevelopment: user.webDevelopment,
-        uiUx: user.uiUx};
-
-      res.json(loggedinUser);
-
       // var token = jwt.sign({ user }, config.secret, {
       //   expiresIn: 86400 // 24 hours
       // })
@@ -288,5 +265,43 @@ exports.update = (req, res) => {
     res.json({ status: 'User Updated!' });
   })
   .error(err => console.log(err));
+
+};
+
+
+exports.getUserData = (req, res) => {
+  User.findOne({
+    where: {
+      userEmail: req.body.username
+    }
+  })
+  .then(user => {
+    if (!user) {
+      return res.status(404).send({ message: "User Not found." });
+    };
+
+    var loggedinUser = {
+      id: user.userId,
+      email: user.userEmail,
+      userFirstName: user.userFirstName,
+      userLastName: user.userLastName,
+      dateOfBirth: user.dateOfBirth,
+      gender: user.gender,
+      school: user.school,
+      university: user.university,
+      degreeId: user.degreeId,
+      codingSkill: user.codingSkill,
+      socialSkill: user.socialSkill,
+      languageSkill: user.languageSkill,
+      programDevelopment: user.programDevelopment,
+      frontEndDevelopment: user.frontEndDevelopment,
+      backEndDevelopment: user.backEndDevelopment,
+      fullStack: user.fullStack,
+      mobileDevelopment: user.mobileDevelopment,
+      webDevelopment: user.webDevelopment,
+      uiUx: user.uiUx};
+
+    res.json(loggedinUser);
+});
 
 };
