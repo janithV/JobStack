@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SegmentModule } from 'ngx-segment-analytics';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSliderModule} from '@angular/material/slider';
 import 'hammerjs';
 
 
@@ -78,7 +79,7 @@ import { AddReviewComponent } from './add-review/add-review.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-    
+    MatSliderModule
 
   ],
   providers: [
