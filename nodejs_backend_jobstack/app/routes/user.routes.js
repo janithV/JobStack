@@ -12,7 +12,8 @@ module.exports = function(app) {
 
   app.get(
     "/api/test/user",
-    authJwt
+    authJwt,
+    controller.userBoard
   );
 
 };

@@ -3,7 +3,6 @@ const config = require("../config/auth.config");
 const Rate = db.rating;
 
 var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
 
 exports.rating = (req, res) => {
     // Save User to Database
@@ -29,6 +28,7 @@ exports.rating = (req, res) => {
         Bad = 0;
       }
     Rate.create({
+      userId: 5,  
       companyId: req.body.company,
       good: Good,
       average: Average,
@@ -36,8 +36,8 @@ exports.rating = (req, res) => {
       rating: req.body.rating,
       dateRated: req.body.dateRated
     })
-    .then(user => {
-      console.log(user);
+    .then(rate => {
+      console.log(rate);
       res.send({ message: "Company rated successfully!" });
       // var token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
       //   expiresIn: 1440
@@ -49,13 +49,11 @@ exports.rating = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 
-    var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
-      });
+    // var token = jwt.sign({ rate }, config.secret, {
+    //     expiresIn: 86400 // 24 hours
+    //   });
 
         res.status(200).send({
-          id: user.id,
-          userEmail: user.username,
-          accessToken: token
+        //   accessToken: token
         });
   };
