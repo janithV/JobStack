@@ -9,7 +9,6 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
   // Save User to Database
   console.log("signing in");
-  console.log(req.body);
   if (req.body.codingSkill) {
     var codeskill = 1;
   }
@@ -136,14 +135,31 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
+      var token = jwt.sign({ id: user }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
 
         res.status(200).send({
-          id: user.id,
-          userEmail: user.username,
-          accessToken: token
+          id: user.userId,
+          email: user.userEmail,
+          userFirstName: user.userFirstName,
+          userLastName: user.userLastName,
+          dateOfBirth: user.dateOfBirth,
+          gender: user.gender,
+          school: user.school,
+          university: user.university,
+          degreeId: user.degreeId,
+          codingSkill: user.codingSkill,
+          socialSkill: user.socialSkill,
+          languageSkill: user.languageSkill,
+          programDevelopment: user.programDevelopment,
+          frontEndDevelopment: user.frontEndDevelopment,
+          backEndDevelopment: user.backEndDevelopment,
+          fullStack: user.fullStack,
+          mobileDevelopment: user.mobileDevelopment,
+          webDevelopment: user.webDevelopment,
+          uiUx: user.uiUx,
+          accessToken:token
         });
       })
     .catch(err => {

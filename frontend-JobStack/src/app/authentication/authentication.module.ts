@@ -14,7 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list'; 
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ProfileComponent, BoardUserComponent],
@@ -31,7 +32,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ]
 })
 
