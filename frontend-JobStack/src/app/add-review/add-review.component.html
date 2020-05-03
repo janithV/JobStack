@@ -7,15 +7,21 @@
     <form novalidate [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
-          <input matInput formControlName="username" placeholder="Username" type="text" required>
+          <input matInput formControlName="companyName" placeholder="companyName" type="text" required>
         </mat-form-field>
-        <mat-form-field class="half-width">
-          <input matInput formControlName="password" placeholder="Password" type="password" required>
+        <mat-form-field>
+            <mat-label>Rate</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let level of rate" [value]="level.value">
+                {{level.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <textarea matInput formControlName="review" placeholder="review" type="text" required></textarea>
         </mat-form-field>
         
-      </p>
-      <p>
-        <span>Don't have an account? Click <a routerLink="/register" >here to register</a>!</span>
       </p>
       
       <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>

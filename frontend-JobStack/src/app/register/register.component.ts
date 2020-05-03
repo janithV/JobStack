@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { User, Gender, Skills, Specialization, DegreeQual } from '../auth/user';
+import { User, Gender, Specialization, DegreeQual } from '../auth/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   gender = Gender;
   degreeQual = DegreeQual;
-  skills = Skills;
   specialization = Specialization;
   user: User;
   @ViewChild ('rform') registerFormDirective;
@@ -52,6 +51,7 @@ export class RegisterComponent implements OnInit {
     'nameOfUni': '',
     'degreeQual': '',
     'specialization': '',
+    
       
   };
 
@@ -114,8 +114,12 @@ export class RegisterComponent implements OnInit {
     nameOfSchool: ['', [Validators.required]],
     nameOfUni: ['', [Validators.required]],
     degreeQual:['', [Validators.required]], 
-    skills: [''],
-    specialization: ['', [Validators.required]]
+    codingSkill: [''],
+    socialSkill: [''],
+    langSkill: [''],
+    webDev: [''],
+    programDev: [''],
+    specialization: ['']
     });
 
     this.registerForm.valueChanges
@@ -145,23 +149,5 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // onCheckboxChange(e){
-
-  //   const skills: FormArray = this.registerForm.get('skills') as FormArray;
-
-  //   if(e.target.checked){
-  //     skills.push(new FormControl(e.target.value));
-  //   }
-  //   else{
-  //     let i: number = 0;
-  //     skills.controls.forEach((item: FormControl) => {
-  //       if (item.value == e.target.value){
-  //         skills.removeAt(i);
-  //         return;
-  //       }
-  //       i++;
-  //     })
-  //   }
-  // }
 
 }

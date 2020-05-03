@@ -1,6 +1,6 @@
 export interface JwtResponse {
     user:{
-        id:number;
+        
         username: string;
         password:string;
         firstname: string;
@@ -10,9 +10,18 @@ export interface JwtResponse {
         nameOfSchool: string;
         nameOfUni: string;
         degreeQual: string;
-        skills: string;
-        specialization: string;
-
+        codingSkill: boolean;
+        socialSkill: boolean;
+        langSkill: boolean;
+        webDev: boolean;
+        programDev: boolean;
+        backend: boolean;
+        frontend: boolean;
+        fullstack: boolean;
+        web: boolean;
+        mobile: boolean;
+        uiux: boolean;
+        
         access_token: string;
         expires_in: number;
     }

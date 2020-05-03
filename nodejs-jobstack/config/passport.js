@@ -29,68 +29,68 @@ module.exports = function(passport) {
    passReqToCallback: true
   },
   function(req, username, password, done){                                                      
-      if (req.body.codingskills) {
+      if (req.body.codingSkill) {
         var codeskill = 1;
       }
       else{
         codeskill = 0;
     }
-    if (req.body.socialskills) {
+    if (req.body.socialSkill) {
       var socialskill = 1;
     }
     else{
       socialskill = 0;  
   }
-  if (req.body.webskills) {
-    var webskill = 1;
+  if (req.body.webDev) {
+    var webDev = 1;
   }
   else{
-    webskill = 0;  
+    webDev = 0;  
 }
-if (req.body.languageskills) {
-  var langskill = 1;
-}
-else{
-  langskill = 0;  
-}
-if (req.body.programeskills) {
-  var programeskill = 1;
+if (req.body.langSkill) {
+  var langSkill = 1;
 }
 else{
-  programeskill = 0;  
+  langSkill = 0;  
+}
+if (req.body.programDev) {
+  var programDev = 1;
+}
+else{
+  programDev = 0;  
 }
 
-if (req.body.Specialization1) {
+if (req.body.backend) {
   var backend = 1;
 }
 else{
   backend = 0;  
 }
-if (req.body.Specialization2) {
+if (req.body.frontend) {
   var frontend = 1;
 }
 else{
   frontend = 0;  
 }
-if (req.body.Specialization3) {
+if (req.body.fullstack) {
   var fullstack = 1;
 }
 else{
   fullstack = 0;  
 }
-if (req.body.Specialization4) {
+if (req.body.mobile) {
   var mobile = 1;
 }
 else{
   mobile = 0;  
 }
-if (req.body.Specialization5) {
+if (req.body.web) {
   var web = 1;
 }
 else{
   web = 0;  
 }
-if (req.body.Specialization6) {
+if (req.body.uiux) {
   var uiux = 1;
 }
 else{
@@ -105,20 +105,20 @@ else{
      return done(null, false, req.flash('signupMessage', 'That is already taken'));
     }else{
      var newUserMysql = { 
-      firstname: req.body.fname,
-      lastname: req.body.lname,
-      birthdate: req.body.dob,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      birthDate: req.body.birthDate,
       gender: req.body.gender,
       username: username,
       password: bcrypt.hashSync(password, null, null),
-      university: req.body.university,
-      school: req.body.school,
-      qualification: req.body.degree ,
-      codskill: codeskill,
-      socskill: socialskill,
-      webskill: webskill,
-      langskill: langskill,
-      programeskill: programeskill,
+      nameOfUni: req.body.nameOfUni,
+      nameOfSchool: req.body.nameOfSchool,
+      degreeQual: req.body.degreeQual ,
+      codingSkill: codeskill,
+      socialSkill: socialskill,
+      webDev: webDev,
+      langSkill: langSkill,
+      programDev: programDev,
       backend: backend,
       frontend: frontend,
       fullstack: fullstack,
@@ -128,9 +128,9 @@ else{
      };
      console.log(newUserMysql);
 
-     var insertQuery = "INSERT INTO UserTable (userFirstName, userLastName, school, university, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelopment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+     var insertQuery = "INSERT INTO UserTable (userFirstName, userLastName, nameOfSchool, nameOfUni, dateOfBirth, gender,	userEmail,	userPassword, codingSkill, socialSkill, languageSkill, programDevelopment, degreeId, frontEndDevelopment, backEndDevelopment, fullStack, mobileDevelopment, webDevelopment, uiUx) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
-     con.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.school, newUserMysql.university, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codskill,newUserMysql.socskill,newUserMysql.langskill,newUserMysql.programeskill,newUserMysql.qualification, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
+     con.query(insertQuery, [newUserMysql.firstname, newUserMysql.lastname, newUserMysql.nameOfSchool, newUserMysql.nameOfUni, newUserMysql.birthdate, newUserMysql.gender, newUserMysql.username, newUserMysql.password,newUserMysql.codingSkill,newUserMysql.socialSkill,newUserMysql.langSkill,newUserMysql.programDev,newUserMysql.degreeQual, newUserMysql.frontend, newUserMysql.backend, newUserMysql.fullstack, newUserMysql.mobile, newUserMysql.web, newUserMysql.uiux],
       function(err, rows){
        newUserMysql.userId = rows.insertId;
        return done(null, newUserMysql);

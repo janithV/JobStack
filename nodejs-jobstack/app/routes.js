@@ -26,13 +26,16 @@ var express = require('express');
 
  app.post('/signup', passport.authenticate('local-signup'),
   function(req,res){
+    var sql = "SELECT * FROM UserTable WHERE userEmail = ";
+    con.query()
     res.json({success: true});
   });
 
  app.get('/profile', isLoggedIn, function(req, res){
+ 
    currentUser = req.user;
    module.exports.currentUser = currentUser;
-   res.json({user: currentUser})
+   res.json({user: currentUser});
  });
 
 };
