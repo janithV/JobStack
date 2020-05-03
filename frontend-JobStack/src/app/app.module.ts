@@ -22,6 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { VirtusaProfileComponent } from './virtusa-profile/virtusa-profile.compo
 import { AddReviewComponent } from './add-review/add-review.component';
 
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,11 +80,11 @@ import { AddReviewComponent } from './add-review/add-review.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-   
+    AuthenticationModule
 
   ],
   providers: [
-    AuthService
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

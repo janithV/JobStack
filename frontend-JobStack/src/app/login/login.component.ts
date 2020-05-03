@@ -22,30 +22,30 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router) { 
 
-    this.createForm();
+    // this.createForm();
   }
 
   ngOnInit(){
   }
 
-  createForm(){
+  // createForm(){
 
-    this.loginForm = this.lg.group({
-      username:'',
-      password:'',
+  //   this.loginForm = this.lg.group({
+  //     username:'',
+  //     password:'',
      
-    });
-  }
+  //   });
+  // }
 
-  onSubmit(login){
-    login = this.loginForm.value;
-    console.log(login);
-    this.authService.signIn(login).subscribe((res)=> {
-      console.log("Logged in!");
-      this.router.navigate(['/profile']);
-    });
+  // onSubmit(login){
+  //   login = this.loginForm.value;
+  //   console.log(login);
+  //   this.authService.signIn(login).subscribe((res)=> {
+  //     console.log("Logged in!");
+  //     this.router.navigate(['/profile']);
+  //   });
     
-    this.loginForm.reset();
-    this.dialogRef.close();
-  }
+  //   this.loginForm.reset();
+  //   this.dialogRef.close();
+  // }
 }

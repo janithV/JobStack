@@ -11,8 +11,11 @@ body{
 }
 
 .container{
-    margin:20px;
+    
     display:flex;
+    padding-right:0 !important;
+    margin:0;
+    padding-left:0!important;
    
 }
 .toolbar{

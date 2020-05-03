@@ -1,0 +1,31 @@
+ol,li{
+    list-style-type: none;
+}
+.mat-checkbox{
+    border:none;
+}
+.row{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin:0;
+    background-image:url("/assets/images/registerbg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding:0;
+    width:100%;
+    
+}
+
+
+.form-size{
+ 
+    align-items: center;
+    margin:0 auto;
+    margin-top: 10%;
+    margin-bottom:10%;   
+}
+body{
+    background-color:purple;
+}
+

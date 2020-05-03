@@ -1,0 +1,254 @@
+<div class="row" fxFlex fxFlexLayoutGap="20px">
+  <mat-card class="form-size" >
+    <h1>Registration</h1>
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.minlength">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Username must be at most 20 characters
+          </div>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="firstname"
+          [(ngModel)]="form.firstname"
+          required
+          minlength="3"
+          maxlength="20"
+          #firstname="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && firstname.invalid">
+          <div *ngIf="firstname.errors.required">First Name is required</div>
+          <div *ngIf="firstname.errors.minlength">
+            First Name must be at least 3 characters
+          </div>
+          <div *ngIf="firstname.errors.maxlength">
+            First Name must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lastname"
+          [(ngModel)]="form.lastname"
+          required
+          minlength="3"
+          maxlength="20"
+          #lastname="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && lastname.invalid">
+          <div *ngIf="lastname.errors.required">Last Name is required</div>
+          <div *ngIf="lastname.errors.minlength">
+            Last Name must be at least 3 characters
+          </div>
+          <div *ngIf="lastname.errors.maxlength">
+            Last Name must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthDate">Enter your Birth Date</label>
+        <input
+          [matDatepicker]="picker"
+          class="form-control"
+          name="birthDate"
+          [(ngModel)]="form.birthDate"
+          required
+          #birthDate="ngModel"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker> 
+        <div class="alert-danger" *ngIf="f.submitted && birthDate.invalid">
+          <div *ngIf="birthDate.errors.required">Birth Date is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <mat-select 
+        placeholder="Gender"
+        class="form-control"
+        name="gender"
+        [(ngModel)]="form.gender"
+        required
+        #gender="ngModel">
+
+        <mat-option class="form-control" name="female" > Female</mat-option>
+        <mat-option class="form-control" name="male" > Male</mat-option>
+
+        </mat-select>
+      </div>
+
+      <div class="form-group">
+        <label for="nameOfSchool">Name of School</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nameOfSchool"
+          [(ngModel)]="form.nameOfSchool"
+          required
+          minlength="3"
+          maxlength="20"
+          #nameOfSchool="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && nameOfSchool.invalid">
+          <div *ngIf="nameOfSchool.errors.required">Name of School is required</div>
+          <div *ngIf="nameOfSchool.errors.minlength">
+            Name of School must be at least 3 characters
+          </div>
+          <div *ngIf="nameOfSchool.errors.maxlength">
+            Name of School must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nameOfUni">Name of University</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nameOfUni"
+          [(ngModel)]="form.nameOfUni"
+          required
+          minlength="3"
+          maxlength="20"
+          #nameOfUni="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && nameOfUni.invalid">
+          <div *ngIf="nameOfUni.errors.required">Name of University is required</div>
+          <div *ngIf="nameOfUni.errors.minlength">
+            Name of University must be at least 3 characters
+          </div>
+          <div *ngIf="nameOfUni.errors.maxlength">
+            Name of University must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="degreeQual">Degree of Qualification</label>
+        <mat-select 
+        placeholder="Degree of Qualification"
+        class="form-control"
+        name="degreeQual"
+        [(ngModel)]="form.degreeQual"
+        required
+        #degreeQual="ngModel">
+
+        <mat-option class="form-control" name="SoftwareEngineering"  > Software Engineering</mat-option>
+        <mat-option class="form-control"  name="ComputerScience"> Computer Science</mat-option>
+        <mat-option class="form-control"  name="BusinessInformationSystems"> Business Information Systems</mat-option>
+        <mat-option class="form-control" name="InformationSystems"> Information Systems</mat-option>
+
+        </mat-select>
+      </div>
+
+      <div class="form-group">
+        <label for="Skills">Skills</label>
+        <ol>
+            <li>
+                <mat-checkbox  class="form-control" name="codingSkill" [(ngModel)]="form.codingSkill"  #codingSkill="ngModel">Coding Skills</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="socialSkill" [(ngModel)]="form.socialSkill"  #socialSkill="ngModel">Social Skills</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="langSkill" [(ngModel)]="form.langSkill"  #langSkill="ngModel">Language Skills</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="webDev" [(ngModel)]="form.webDev"  #webDev="ngModel">Web Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="programDev" [(ngModel)]="form.programDev"  #programDev="ngModel">Program Development</mat-checkbox>
+            </li>
+               
+        </ol>
+      </div>
+      <div class="form-group">
+        <label for="specialization">Specialization</label>
+        <ol>
+            <li>
+                <mat-checkbox  class="form-control" name="backend" [(ngModel)]="form.backend"  #backend="ngModel">Backend Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="frontend" [(ngModel)]="form.frontend"  #frontend="ngModel">Frontend Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="fullstack" [(ngModel)]="form.fullstack"  #fullstack="ngModel">Fullstack Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="web" [(ngModel)]="form.web"  #web="ngModel">Web Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="mobile" [(ngModel)]="form.mobile"  #mobile="ngModel">Mobile Application Development</mat-checkbox>
+            </li>
+            <li>
+                <mat-checkbox  class="form-control" name="uiux" [(ngModel)]="form.uiux"  #uiux="ngModel">UI/UX</mat-checkbox>
+            </li>
+               
+        </ol>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Sign Up</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </mat-card>
+</div>
+        
+
