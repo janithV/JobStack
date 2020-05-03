@@ -18,5 +18,5 @@ module.exports = function(app) {
 //     controller.signup
 //   );
 
-  app.post("/api/auth/rate", controller.signin);
+  app.post("/api/auth/rate", controller.rating);
 };

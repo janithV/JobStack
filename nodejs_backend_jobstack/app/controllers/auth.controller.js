@@ -4,74 +4,86 @@ const User = db.user;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+var codeskill = 0;
+var socialskill = 0;
+var webDev = 0;
+var langSkill = 0;
+var programDev = 0;
+var backend = 0;
+var frontend = 0;
+var fullstack = 0;
+var mobile = 0;
+var web = 0;
+var uiux = 0;
+
 
 
 exports.signup = (req, res) => {
   // Save User to Database
   console.log("signing in");
   if (req.body.codingSkill) {
-    var codeskill = 1;
+    codeskill = 1;
   }
   else{
     codeskill = 0;
   }
   if (req.body.socialSkill) {
-    var socialskill = 1;
+    socialskill = 1;
   }
   else{
     socialskill = 0;  
   }
   if (req.body.webDev) {
-  var webDev = 1;
+  webDev = 1;
   }
   else{
   webDev = 0;  
   }
   if (req.body.langSkill) {
-  var langSkill = 1;
+   langSkill = 1;
   }
   else{
   langSkill = 0;  
   }
   if (req.body.programDev) {
-  var programDev = 1;
+  programDev = 1;
   }
   else{
   programDev = 0;  
   }
 
   if (req.body.backend) {
-  var backend = 1;
+   backend = 1;
   }
   else{
   backend = 0;  
   }
   if (req.body.frontend) {
-  var frontend = 1;
+   frontend = 1;
   }
   else{
   frontend = 0;  
   }
   if (req.body.fullstack) {
-  var fullstack = 1;
+   fullstack = 1;
   }
   else{
   fullstack = 0;  
   }
   if (req.body.mobile) {
-  var mobile = 1;
+   mobile = 1;
   }
   else{
   mobile = 0;  
   }
   if (req.body.web) {
-  var web = 1;
+   web = 1;
   }
   else{
   web = 0;  
   }
   if (req.body.uiux) {
-  var uiux = 1;
+   uiux = 1;
   }
   else{
   uiux = 0;  
@@ -79,8 +91,8 @@ exports.signup = (req, res) => {
   User.create({
     userEmail: req.body.username,
     userPassword: bcrypt.hashSync(req.body.password, 8),
-    userFirstname: req.body.firstname,
-    userLastname: req.body.lastname,
+    userFirstName: req.body.firstname,
+    userLastName: req.body.lastname,
     dateOfBirth: req.body.birthDate,
     gender: req.body.gender,
     school: req.body.nameOfSchool,
@@ -92,7 +104,7 @@ exports.signup = (req, res) => {
     programDevelopment: programDev,
     frontEndDevelopment: frontend,
     backEndDevelopment: backend,
-    fullstack: fullstack,
+    fullStack: fullstack,
     mobileDevelopment: mobile,
     webDevelopment: web,
     uiUx: uiux
@@ -135,17 +147,149 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
+      var token = jwt.sign({ user }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
 
         res.status(200).send({
-          id: user.id,
-          userEmail: user.username,
-          accessToken: token
+          id: user.userId,
+          email: user.userEmail,
+          userFirstName: user.userFirstName,
+          userLastName: user.userLastName,
+          dateOfBirth: user.dateOfBirth,
+          gender: user.gender,
+          school: user.school,
+          university: user.university,
+          degreeId: user.degreeId,
+          codingSkill: user.codingSkill,
+          socialSkill: user.socialSkill,
+          languageSkill: user.languageSkill,
+          programDevelopment: user.programDevelopment,
+          frontEndDevelopment: user.frontEndDevelopment,
+          backEndDevelopment: user.backEndDevelopment,
+          fullStack: user.fullStack,
+          mobileDevelopment: user.mobileDevelopment,
+          webDevelopment: user.webDevelopment,
+          uiUx: user.uiUx,
+          accessToken:token
         });
       })
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
+};
+
+exports.update = (req, res) => {
+  // Save User to Database
+  console.log("updating user");
+
+  var id = 0;
+
+  User.findOne({
+    where: {
+      userEmail: req.body.username
+    }
+  })
+    .then(user => { 
+      id =  user.userId;
+      console.log(id);
+    });
+
+  if (req.body.codingSkill) {
+    codeskill = 1;
+  }
+  else{
+    codeskill = 0;
+  }
+  if (req.body.socialSkill) {
+    socialskill = 1;
+  }
+  else{
+    socialskill = 0;  
+  }
+  if (req.body.webDev) {
+  webDev = 1;
+  }
+  else{
+  webDev = 0;  
+  }
+  if (req.body.langSkill) {
+  langSkill = 1;
+  }
+  else{
+  langSkill = 0;  
+  }
+  if (req.body.programDev) {
+  programDev = 1;
+  }
+  else{
+  programDev = 0;  
+  }
+
+  if (req.body.backend) {
+  backend = 1;
+  }
+  else{
+  backend = 0;  
+  }
+  if (req.body.frontend) {
+  frontend = 1;
+  }
+  else{
+  frontend = 0;  
+  }
+  if (req.body.fullstack) {
+  fullstack = 1;
+  }
+  else{
+  fullstack = 0;  
+  }
+  if (req.body.mobile) {
+  mobile = 1;
+  }
+  else{
+  mobile = 0;  
+  }
+  if (req.body.web) {
+  web = 1;
+  }
+  else{
+  web = 0;  
+  }
+  if (req.body.uiux) {
+  uiux = 1;
+  }
+  else{
+  uiux = 0;  
+  }
+
+  User.update(
+    {
+      userEmail: req.body.username,
+      userPassword: bcrypt.hashSync(req.body.password, 8),
+      userFirstName: req.body.firstname,
+      userLastName: req.body.lastname,
+      dateOfBirth: req.body.birthDate,
+      gender: req.body.gender,
+      school: req.body.nameOfSchool,
+      university: req.body.nameOfUni,
+      degreeId: req.body.degreeQual,
+      codingSkill: codeskill,
+      socialSkill: socialskill,
+      languageSkill: langSkill,
+      programDevelopment: programDev,
+      frontEndDevelopment: frontend,
+      backEndDevelopment: backend,
+      fullStack: fullstack,
+      mobileDevelopment: mobile,
+      webDevelopment: web,
+      uiUx: uiux
+    },
+    {where: {userId: id}}
+  )
+  .then(() => {
+    res.json({ status: 'User Updated!' });
+  })
+  .error(err => console.log(err));
+
 };
