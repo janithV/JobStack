@@ -1,30 +1,31 @@
 import urllib.request
 import json
+import sys 
 
 data = {
         "Inputs": {
                 "input1":
                 [
                     {
-                            'userid': "",
+                            'userid': sys.argv[1]
                     }
                 ],
                 "input2":
                 [
                     {
-                            'userid': "",
-                            'codingskill': "",
-                            'socialskill': "",
-                            'languageskill': "",
-                            'programdev': "",
-                            'frontenddev': "",
-                            'backenddev': "",
-                            'fullstack': "",
-                            'mobiledev': "",
-                            'webdev': "",
-                            'uiux': "",
+                            'userid': sys.argv[1],
+                            'codingskill': sys.argv[2],
+                            'socialskill': sys.argv[3],
+                            'languageskill': sys.argv[4],
+                            'programdev': sys.argv[5],
+                            'frontenddev': sys.argv[6],
+                            'backenddev': sys.argv[7],
+                            'fullstack': sys.argv[8],
+                            'mobiledev': sys.argv[9],
+                            'webdev': sys.argv[10],
+                            'uiux': sys.argv[11],
                             'salary': "",
-                            'degreeid': "",
+                            'degreeid': sys.argv[12],
                     }
                 ],
         },

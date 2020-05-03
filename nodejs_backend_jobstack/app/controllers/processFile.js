@@ -1,19 +1,22 @@
-var mysql = require('mysql');
+var express = require('express'); 
+var app = express(); 
 
-var con = mysql.createConnection({
-  host: "remotemysql.com",
-  user: "RtG8BK6Pbe",
-  password: "bXH6YfYQMr",
-  database: "RtG8BK6Pbe"
+var con = require('./db');
+
+con.connect((err) => {
+    if(err) throw err;
+    console.log("Database connected");
+})
+
+app.listen(3000, function() { 
+	console.log('server running on port 3000'); 
 });
 
-con.connect(function(err) {
-    if (err) console.log(err);
-    console.log("Connected!");
-    });
+app.get('/', callName); 
 
-exports.callName = (req, res) => { 
+function callName(req, res) { 
     userid = 5;
+    var con = require('./db');
 
     con.query("SELECT * FROM UserTable WHERE userId = ? ", [userid], function (err, result, fields) {
         if (err) throw err;
@@ -34,13 +37,12 @@ exports.callName = (req, res) => {
         var uiUx = "u"+result[0].uiUx;
         var degree = result[0].degreeId;
 
-       console.log(userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree);
+        console.log(userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree);
 
         var process = spawn('python',["./processFile.py",userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree]); 
-        console.log("WWORKS");
+
         var list = "";
         process.stdout.on('data', function(data) {
-            console.log("WWORKS");
             var company = data.toString().split('"');
             for(x in company){
                 if(company[x].includes("CID")){
@@ -48,7 +50,6 @@ exports.callName = (req, res) => {
                 }   
             }
             console.log("Compnaies :" + list);
-            console.log("WWORKS");
 
             var companyD = list.split(",");
             for(i=0; i<(companyD.length-1);i++){
