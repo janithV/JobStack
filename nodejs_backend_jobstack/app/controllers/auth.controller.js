@@ -9,6 +9,7 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
   // Save User to Database
   console.log("signing in");
+  console.log(req.body);
   if (req.body.codingSkill) {
     var codeskill = 1;
   }
