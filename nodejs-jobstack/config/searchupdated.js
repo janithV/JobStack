@@ -5,7 +5,7 @@ function search1(req, res, next){
 
     let query = "SELECT * FROM company"; 
     if(searchTerm != '' && category!= ''){
-        query = 'SELECT companyName from company'
+        query = 'SELECT companyName from company WHERE category= ' + category ;
     }
 
     database.query(query, (err, result) => {
@@ -14,7 +14,6 @@ function search1(req, res, next){
             req.searchResult = '';
             req.searchTerm = '';
             req.category = '';
-            
             next();
         }
 
@@ -26,4 +25,33 @@ function search1(req, res, next){
         next();
 
     });
+
 }
+
+app.get('/search1', search1, (req, res)=>{
+
+var searchResult = req.searchResult;
+res.render('/search1',{
+    results: searchResult.length,
+    searchTerm: req.searchTerm
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
