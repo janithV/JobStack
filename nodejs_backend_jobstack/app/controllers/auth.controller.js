@@ -16,8 +16,6 @@ var mobile = 0;
 var web = 0;
 var uiux = 0;
 
-
-
 exports.signup = (req, res) => {
   // Save User to Database
   console.log("signing in");
