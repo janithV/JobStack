@@ -33,10 +33,13 @@ export class BoardUserComponent implements OnInit {
     uiUx: '',
   }
 
+  id = window.sessionStorage.getItem("email");
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserBoard().subscribe(
+    console.log(this.id);
+    this.userService.getUserBoard(this.id).subscribe(
       data=> {
         console.log(data);
         this.user.id = data.id;
@@ -65,7 +68,7 @@ export class BoardUserComponent implements OnInit {
       err=> {this.user = JSON.parse(err.error).message;}
       
     )
-    console.log(this.user);
+    //console.log(this.user);
   }
 
 }
