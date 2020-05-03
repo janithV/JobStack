@@ -21,6 +21,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSliderModule} from '@angular/material/slider';
 import 'hammerjs';
 import { AuthenticationModule } from './authentication/authentication.module';
 
@@ -79,8 +80,13 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
+<<<<<<< HEAD
     MatDatepickerModule,
     AuthenticationModule
+=======
+    MatDatepickerModule
+   
+>>>>>>> 278e028bbbe45a3852e6d0bf7501e131c489ea89
 
   ],
   providers: [
