@@ -80,13 +80,10 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-<<<<<<< HEAD
+
     MatDatepickerModule,
     AuthenticationModule
-=======
-    MatDatepickerModule
-   
->>>>>>> 278e028bbbe45a3852e6d0bf7501e131c489ea89
+
 
   ],
   providers: [
