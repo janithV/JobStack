@@ -34,12 +34,13 @@ exports.callName = (req, res) => {
         var uiUx = "u"+result[0].uiUx;
         var degree = result[0].degreeId;
 
-        console.log(userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree);
+       console.log(userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree);
 
         var process = spawn('python',["./processFile.py",userid,codingskills,socialskills,languageskills,programdev,frontenddev,backenddev,fullstack,mobiledev,webdev,uiUx,degree]); 
-
+        console.log("WWORKS");
         var list = "";
         process.stdout.on('data', function(data) {
+            console.log("WWORKS");
             var company = data.toString().split('"');
             for(x in company){
                 if(company[x].includes("CID")){
@@ -47,6 +48,7 @@ exports.callName = (req, res) => {
                 }   
             }
             console.log("Compnaies :" + list);
+            console.log("WWORKS");
 
             var companyD = list.split(",");
             for(i=0; i<(companyD.length-1);i++){
@@ -57,7 +59,7 @@ exports.callName = (req, res) => {
                 });
             }
             console.log(companyD);
-            res.json("Compnaies :" + list); 
+            res.send("Compnaies :" + list); 
         });
     });
 }

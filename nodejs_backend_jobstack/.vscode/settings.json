@@ -4,5 +4,6 @@
         ".vscode{,/**}"
     ],
     "appService.defaultWebAppToDeploy": "/subscriptions/f481ded4-26e2-40b8-8cb3-0d0bedd2de5f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/jobStack",
-    "appService.deploySubpath": ""
+    "appService.deploySubpath": "",
+    "python.pythonPath": "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 }
