@@ -25,10 +25,8 @@ export const routes: Routes = [
     {path :'add-review', component:AddReviewComponent},
     {path :'user', component: BoardUserComponent },
     {path :'edit', component: EditComponent},
-    {path :'com-card', component: CompanyCardComponent}
-    
-    
-
+    {path :'com-card', component: CompanyCardComponent},
+    {path :'com-card/:name', component: CompanyCardComponent}
 ]
 
     

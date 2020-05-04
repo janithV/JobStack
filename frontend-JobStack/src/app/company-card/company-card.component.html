@@ -7,17 +7,31 @@ fxLayoutAlign.sm="start center"
 fxLayoutAlign.gt-sm="center center" 
 fxLayoutGap="10px">
 
-<mat-card class="intro">
-            <mat-card-header>
+<mat-card class="intro" *ngFor="let comp of company">
+            <mat-card-header >
                 <mat-card-title>
-                    Company Name
+                    <h2 matLine>
+                        {{comp.companyName}}
+                    </h2>
+                  
                 </mat-card-title>
                 <mat-card-subtitle>
-                    Company Location
+                    <p matLine>
+                        {{comp.location}}
+                    </p>
                 </mat-card-subtitle>
-               
             </mat-card-header>
+                <mat-card-content>
+                    
+                <a href={{path}} class="btn btn-primary center" >View Profile</a>
+                    
+                </mat-card-content>
+                
+               
             
+            
+                
+           
         </mat-card>  
 </div>
 

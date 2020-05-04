@@ -3,6 +3,7 @@ import { LoginComponent } from '../authentication/login/login.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { TokenStorageService } from '../services/token-storage.service';
 import { SearchService } from '../services/search.service';
+import { Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   companyList = [];
   search = '';
 
-  constructor(public dialog: MatDialog,private tokenStorageService: TokenStorageService, private searchService: SearchService) { }
+  constructor(public dialog: MatDialog,private tokenStorageService: TokenStorageService, private searchService: SearchService, private router: Router) { }
 
   ngOnInit(){
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -29,12 +30,6 @@ export class HeaderComponent implements OnInit {
 
       this.username = user.username;
     }
-    let data = "all";
-    this.searchService.search(data).subscribe(
-      (res) => {
-        console.log(res);
-      }
-    )
   }
   
 
@@ -44,6 +39,11 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+
+  onSearch(){
+    console.log(this.search);
+    this.router.navigate(['com-card', this.search]);
   }
 
 }
