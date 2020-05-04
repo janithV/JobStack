@@ -1,9 +1,51 @@
 const db = require("../models");
-const config = require("../config/auth.config");
+const userCompany = db.usercompany;
 const User = db.user;
+const request = require('request');
+
 
 exports.getRecommendations = (req, res) => {
-    // Save User to Database
-    console.log("signing in");
+    var id = req.params.id;
+
+    User.findOne({
+        where: {
+          userId: id
+        }
+      })
+        .then(user => {
+          if (!user) {
+            return res.status(404).send({ message: "User Not found." });
+          }
+
+          var userData = {
+            cdskill : "ck" + user.codingSkill,
+            scskill : "sk" + user.socialSkill,
+            lsskill : "ls" + user.languageSkill,
+            pdskill : "pd" + user.programDevelopment,
+            degree : user.degreeId,
+            'feskil': "fe" + user.frontEndDevelopment,
+            'beskill': "be" + user.backEndDevelopment,
+            'fsskill': "fs" + user.fullStack,
+            'mdskill': "md" + user.mobileDevelopment,
+            'wdskill': "wd" + user.webDevelopment,
+            'uskill': "u" + user.uiUx,
+
+          };
+
+          console.log(userData);
+
+          request.post(' http://127.0.0.1:5000/recommend', {
+              json: {
+                  todo: userData
+              }
+            }, (error, res, body) => {
+                if(error) {
+                    console.error(error);
+                    return;
+                }
+            });
+
+            res.status(200).send({message: "Works"});
+    });
 
 };

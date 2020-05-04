@@ -2,12 +2,5 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ],
-    "appService.deploySubpath": "",
-    "python.pythonPath": "C:\\Users\\JANITH\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
-<<<<<<< HEAD
-    "appService.defaultWebAppToDeploy": "/subscriptions/f481ded4-26e2-40b8-8cb3-0d0bedd2de5f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/JobStack"
-=======
-    "appService.defaultWebAppToDeploy": "/subscriptions/f481ded4-26e2-40b8-8cb3-0d0bedd2de5f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/JobStack-Backend"
->>>>>>> 220b0c5b6ff1e7fb4671ba075db38c15a265ddd4
+    ]
 }

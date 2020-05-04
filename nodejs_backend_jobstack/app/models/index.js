@@ -27,5 +27,6 @@ db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.rating = require("../models/rate.model.js")(sequelize, Sequelize);
 db.company = require("../models/company.model.js")(sequelize, Sequelize);
+db.usercompany = require("../models/userCompany.model.js")(sequelize, Sequelize);
 
 module.exports = db;

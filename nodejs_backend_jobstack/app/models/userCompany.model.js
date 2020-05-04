@@ -1,16 +1,14 @@
 module.exports = (sequelize, Sequelize) => {
-    const Company = sequelize.define("CompanyTable", {
+    const Company = sequelize.define("UserCompanyTable", {
         companyId: {
             type: Sequelize.STRING,
             primaryKey: true
         },
-        companyName: {
-            type: Sequelize.STRING
-        },
-        location: {
-            type: Sequelize.STRING
+        userId: {
+            type: Sequelize.STRING,
+            primaryKey: true
         }
     }, { freezeTableName: true, timestamps: false }
     );
     return Company;
-};
+}
