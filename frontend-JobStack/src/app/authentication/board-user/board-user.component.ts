@@ -36,8 +36,10 @@ export class BoardUserComponent implements OnInit {
   }
   skills = [];
   specializations = [];
+  recommendations = [];
 
   id = window.sessionStorage.getItem("email");
+  userId = window.sessionStorage.getItem("userId");
 
   constructor(private userService: UserService, private recommendService: RecommendService, private profileService: ProfileService) { }
 
@@ -120,9 +122,10 @@ export class BoardUserComponent implements OnInit {
   }
 
   getRecommend(){
-    this.recommendService.getRecommendation(this.id).subscribe(
+    this.recommendService.getRecommendation(this.userId).subscribe(
       res => {
-        console.log(res);
+        this.recommendations = res.companyData;
+        console.log(this.recommendations);
       }
     )
   }

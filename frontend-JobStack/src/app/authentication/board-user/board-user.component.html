@@ -75,15 +75,15 @@ fxLayoutGap="10px">
        
       <span class="recom">
         
-        <button class="btn btn-primary btn-sm">View Recommendation</button>
+        <button class="btn btn-primary btn-sm" (click)="getRecommend()">View Recommendation</button>
       </span>
       <span>
         <h2>Your Recommendations!</h2>
-        <mat-card class="card1">
+        <mat-card class="card1" *ngFor="let rec of recommendations">
       
             <mat-card-header>
-                <div mat-card-avatar class="vimage"></div>
-                <mat-card-title>Virtusa</mat-card-title>
+                
+                <mat-card-title>{{rec}}</mat-card-title>
                 <mat-card-subtitle>Company - Public</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
