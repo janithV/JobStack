@@ -7,6 +7,9 @@ const request = require('request');
 
 exports.getRecommendations = (req, res) => {
     var id = req.params.id;
+    var list = "";
+    var company;
+    var companyD;
 
     User.findOne({
         where: {
@@ -42,12 +45,32 @@ exports.getRecommendations = (req, res) => {
                     console.error(error);
                     return;
                 }
-                console.log(body);
+                company = JSON.stringify(body).split('"');
+                for (x in company){
+                  if(company[x].includes("CID")){
+                    list = list + (company[x] + ",");
+                  }
+                }
+                console.log(list);
+
+                companyD = list.split(",");
+                for(i=0; i<(companyD.length-1);i++){
+                  userCompany.create({
+                    companyId: companyD[i],
+                    userId: id
+                  });
+                }
             });
 
             res.status(200).send({
-              message: "Works"
+              message: "Recommendations successfull",
+              data:list
             });
+    })
+    .catch(err => {
+      console.log(err);
+      res.send({ message: err.message });
     });
+  
 
 };
