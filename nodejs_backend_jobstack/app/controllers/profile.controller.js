@@ -1,6 +1,7 @@
 const db = require("../models");
 const userCompany = db.usercompany;
 const User = db.user;
+const companyTable = db.company;
 const request = require('request');
 // var querystring = require('querystring');
 
@@ -41,7 +42,7 @@ exports.getRecommendations = (req, res) => {
           };
 
           request.post(options,
-            (error, res, body) => {
+            (error, resc, body) => {
                 if(error) {
                     console.error(error);
                     return;
@@ -61,12 +62,14 @@ exports.getRecommendations = (req, res) => {
                     userId: id
                   });
                 }
-            });
-            
+
             companyD = list.split(",");
             for(i=0; i<(companyD.length-1);i++){
-              User.findOne({
-                where: companyD[i]
+              console.log(i);
+              companyTable.findOne({
+                where:{
+                   companyId: companyD[i]
+                }
               }
             )
             .then(msg => {
@@ -77,13 +80,13 @@ exports.getRecommendations = (req, res) => {
               res.status(500).send({ message: err.message });
             });
            }
-
+           
+           console.log(companyData);
            res.send({companyData});
-          })
+          });
+        })
         .catch(err => {
           console.log(err);
           res.send({ message: err.message });
         });
-  
-
 };
