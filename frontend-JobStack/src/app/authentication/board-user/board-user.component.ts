@@ -50,12 +50,11 @@ export class BoardUserComponent implements OnInit {
         this.user.username = data.email;
         this.user.fname = data.userFirstName;
         this.user.lname = data.userLastName;
-        this.user.name = data.userFirstName + " " + data.LastName;
+        this.user.name = data.userFirstName + " " + data.userLastName;
         this.user.dob = data.dateOfBirth;
         this.user.gender = data.gender;
         this.user.school = data.school;
         this.user.university = data.university;
-        this.user.degree = data.degreeId;
         this.user.codingSkill = data.codingSkill;
         this.user.socialSkill = data.socialSkill;
         this.user.languageSkill = data.languageSkill;
@@ -67,6 +66,19 @@ export class BoardUserComponent implements OnInit {
         this.user.mobileDevelopment = data.mobileDevelopment;
         this.user.webDevelopment = data.webDevelopment;
         this.user.uiUx = data.uiUx;
+
+        if(data.degreeId == 'DID01'){
+          this.user.degree = 'Computer Science';
+        }
+        if(data.degreeId == 'DID02'){
+          this.user.degree = 'Software Engineering';
+        }
+        if(data.degreeId == 'DID03'){
+          this.user.degree = 'Business Information Systems';
+        }
+        if(data.degreeId == 'DID04'){
+          this.user.degree = 'Information Systems';
+        }
 
         if(this.user.codingSkill == '1'){
           this.skills.push("Coding Skill");

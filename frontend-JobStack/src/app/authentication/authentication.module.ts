@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { EditComponent } from './edit/edit.component'; 
 
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ProfileComponent, BoardUserComponent, EditComponent],
   imports: [

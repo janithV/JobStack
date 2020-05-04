@@ -14,9 +14,25 @@ export class ProfileService {
     return this.http.get<any>("http://localhost:8080/api/auth/profile/" + username);
   }
 
-  editProfile(user): Observable<any> {
-    return this.http.put<any>("http://localhost:8080/api/auth/update", {
-      
+  editProfile(user, id): Observable<any> {
+    return this.http.put<any>("http://localhost:8080/api/auth/update" + id , {
+      codingSkill: user.codingSkill,
+      socialSkill: user.socialSkill,
+      webDev: user.webDev,
+      langSkill: user.langSkill,
+      programDev: user.programDev,
+      backend: user.backend,
+      frontend: user.frontend,
+      fullstack: user.fullstack,
+      mobile: user.mobile,
+      web: user.webDev,
+      uiux: user.uiux,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      nameOfSchool: user.nameOfSchool,
+      nameOfUni: user.nameOfUni,
+      degreeQual: user.degreeQual,
+
     });
   }
 }
