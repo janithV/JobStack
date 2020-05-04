@@ -86,6 +86,4 @@ exports.getRecommendations = (req, res) => {
           console.log(err);
           res.send({ message: err.message });
         });
-  
-
 };
