@@ -2,7 +2,6 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 
-var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 var codeskill = 0;
 var socialskill = 0;
@@ -220,7 +219,7 @@ exports.update = (req, res, next) => {
   uiux = 0;  
   }
     const updateuser ={
-      userFirstName:req.body.firstname,
+          userFirstName:req.body.firstname,
           userLastName: req.body.lastname,
           school: req.body.nameOfSchool,
           university: req.body.nameOfUni,
