@@ -25,7 +25,7 @@ module.exports = function(app) {
 
   app.get("/api/auth/profile/:username",controller.getUserData);
 
-  app.post("/api/auth/profile/recommendations", controller2.callName);
+  app.get("/api/auth/profile/recommendations", controller2.callName);
 
   };
 

@@ -110,11 +110,6 @@ exports.signup = (req, res) => {
   .then(user => {
     console.log(user);
     res.send({ message: "User registered successfully!" });
-    // var token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-    //   expiresIn: 1440
-      
-    // });
-    // res.json({ token: token });
   })
   .catch(err => {
     res.status(500).send({ message: err.message });
@@ -235,12 +230,8 @@ exports.update = (req, res) => {
 
   User.update(
     {
-      userEmail: req.body.username,
-      userPassword: bcrypt.hashSync(req.body.password, 8),
       userFirstName: req.body.firstname,
       userLastName: req.body.lastname,
-      dateOfBirth: req.body.birthDate,
-      gender: req.body.gender,
       school: req.body.nameOfSchool,
       university: req.body.nameOfUni,
       degreeId: req.body.degreeQual,
@@ -257,8 +248,8 @@ exports.update = (req, res) => {
     },
     {where: {userId: id}}
   )
-  .then(() => {
-    res.json({ status: 'User Updated!' });
+  .then((userUpdated) => {
+    res.json({ status: 'User Updated!', data:userUpdated });
   })
   .error(err => console.log(err));
 
