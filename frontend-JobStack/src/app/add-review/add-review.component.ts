@@ -37,15 +37,22 @@ export class AddReviewComponent implements OnInit {
     
     console.log(this.addReviewForm.value);
     
-    var formData: any = new FormData();
-    formData.append("companyName", this.addReviewForm.get('companyName').value);
-    formData.append("rating",this.addReviewForm.get('rating').value);
-    formData.append("review", this.addReviewForm.get('review').value);
+    // var formData: any = new FormData();
+    // formData.append("companyName", this.addReviewForm.get('companyName').value);
+    // formData.append("rating",this.addReviewForm.get('rating').value);
+    // formData.append("review", this.addReviewForm.get('review').value);
+    // console.log(formData);
+    var userId = window.sessionStorage.getItem("userId");
 
-    this.http.post('https://jobstack.azurewebsites.net/api/company/review', formData)
-    .subscribe(
-      (res) => console.log(res),
-      (err)=> console.log(err)   
+    this.http.post('http://localhost:8080/api/company/review', {
+      userId: userId,
+      companyName: this.addReviewForm.value.companyName,
+      rate: this.addReviewForm.value.rate,
+      review: this.addReviewForm.value.review
+    })
+    .subscribe((res) => {
+      console.log(res);
+    }  
     );
     this.addReviewForm.reset();
     this.dialogRef.close();

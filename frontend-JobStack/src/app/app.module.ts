@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 
+
 import 'hammerjs';
 import { AuthenticationModule } from './authentication/authentication.module';
 

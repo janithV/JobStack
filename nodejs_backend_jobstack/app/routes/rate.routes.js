@@ -5,6 +5,6 @@ module.exports = (app) => {
 
   app.post("/api/company/review", controller.rating);
 
-  app.get("/api/company/reviews", controller.getRating);
+  app.get("/api/company/reviews/:companyName", controller.getRating);
 
 };

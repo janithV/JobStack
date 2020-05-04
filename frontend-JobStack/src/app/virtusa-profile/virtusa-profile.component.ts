@@ -18,7 +18,9 @@ export class VirtusaProfileComponent implements OnInit {
     review:'',
     dateRated:'',
   }
+  rating = [];
 
+  name = "Virtusa";
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit(){
@@ -26,10 +28,8 @@ export class VirtusaProfileComponent implements OnInit {
     return this.getReview()
     .subscribe(
       res => {
-        this.passRating.companyName = res.companyName;
-        this.passRating.rating = res.rating;
-        this.passRating.review = res.review;
-        this.passRating.dateRated = res.dateRated;
+        this.rating = res.reviews;
+        console.log(this.rating);
       },
       err =>
       {console.log(err);} 
@@ -41,6 +41,6 @@ export class VirtusaProfileComponent implements OnInit {
   }
   
   getReview() :Observable<any>{
-    return this.http.get('https://jobstack.azurewebsites.net/api/company/' + 'reviews');
+    return this.http.get('http://localhost:8080/api/company/' + 'reviews/' + this.name);
   }
 }

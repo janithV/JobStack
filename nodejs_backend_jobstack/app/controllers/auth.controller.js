@@ -268,7 +268,7 @@ exports.update = (req, res) => {
 exports.getUserData = (req, res) => {
   User.findOne({
     where: {
-      userEmail: req.body.username
+      userEmail: req.params.username
     }
   })
   .then(user => {

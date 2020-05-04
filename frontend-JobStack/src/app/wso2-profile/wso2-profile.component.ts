@@ -17,21 +17,20 @@ export class Wso2ProfileComponent implements OnInit {
     review:'',
     dateRated:'',
   }
+  
+  rating = [];
 
   name = "WSO2";
 
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit(){
-
+    console.log("in wso2 profile");
     return this.getReview()
     .subscribe(
       res => {
-        console.log(res);
-        this.passRating.companyName = res.companyName;
-        this.passRating.rating = res.rating;
-        this.passRating.review = res.review;
-        this.passRating.dateRated = res.dateRated;
+        this.rating = res.reviews;
+        console.log(this.rating);
       },
       err =>
       {console.log(err);} 
@@ -43,6 +42,6 @@ export class Wso2ProfileComponent implements OnInit {
   }
   
   getReview() :Observable<any>{
-    return this.http.get('https://jobstack.azurewebsites.net/api/company/' + 'reviews');
+    return this.http.get('http://localhost:8080/api/company/' + 'reviews/' + this.name);
   }
 }

@@ -18,6 +18,7 @@ exports.rating = (req, res) => {
   Company.findOne({ where: { companyName: company } })
     .then(data => {
       let id = data.companyId;
+      console.log(id);
 
       Rate.create({
         userId: userId,
@@ -32,6 +33,7 @@ exports.rating = (req, res) => {
             msg: "Review added successfully"
           });
         }).catch(err => {
+          console.log(err);
           res.status(500).send({ message: err.message });
         });
 
@@ -41,7 +43,7 @@ exports.rating = (req, res) => {
 };
 
 exports.getRating = (req, res) => {
-  company = req.body.companyName;
+  company = req.params.companyName;
 
   Company.findOne({ where: { companyName: company } })
     .then(data => {

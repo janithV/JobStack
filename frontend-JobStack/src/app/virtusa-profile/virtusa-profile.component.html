@@ -36,15 +36,15 @@
 
         <div class="company-review">
             <h3>Reviews</h3>
-            <mat-list>
+            <mat-list *ngFor="let review of rating">
                 <mat-list-item>
-                    {{passRating.dateRated}}
+                    {{review.dateRated | date}}
                 </mat-list-item>
                 <mat-list-item>
-                    {{passRating.rating}}
+                    {{review.rating}}
                 </mat-list-item>
                 <mat-list-item>
-                    {{passRating.review}}
+                    {{review.review}}
                 </mat-list-item>
             </mat-list>
         </div>

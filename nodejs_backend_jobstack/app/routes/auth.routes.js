@@ -23,7 +23,7 @@ module.exports = function(app) {
 
   app.put("/api/auth/update",controller.update);
 
-  app.get("/api/auth/profile",controller.getUserData);
+  app.get("/api/auth/profile/:username",controller.getUserData);
 
   app.post("/api/auth/profile/recommendations", controller2.callName);
 
