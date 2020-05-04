@@ -15,6 +15,7 @@ console.log("Connected!");
 });
 
 exports.callName = (req, res) => {
+    let userId = req.body.userId;
     userid = 2;
 
     con.query("SELECT * FROM UserTable WHERE userId = ? ", [userid], function (err, result, fields) {
