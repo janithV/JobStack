@@ -12,7 +12,7 @@ export class RecommendService {
   constructor(private http: HttpClient,) { }
 
   getRecommendation(id): Observable<any>{
-    return this.http.get(API_URL + 'recommendations');
+    return this.http.get(API_URL + 'recommendations' + id);
   }
 
 
