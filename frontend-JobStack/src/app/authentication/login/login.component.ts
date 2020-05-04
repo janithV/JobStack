@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  name: '';
 
   ngOnInit(){
     if (this.tokenStorage.getToken()) {
@@ -27,10 +28,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
+        console.log(data.user);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        window.sessionStorage.setItem("email", data.email);
-        window.sessionStorage.setItem("userId", data.id);
+        this.name = data.user.userEmail;
+        window.sessionStorage.setItem("email", data.user.userEmail);
+        window.sessionStorage.setItem("userId", data.user.userId);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

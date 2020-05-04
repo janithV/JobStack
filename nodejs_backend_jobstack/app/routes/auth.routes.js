@@ -1,6 +1,6 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
-const controller2 = require("../controllers/processFile");
+//const controller2 = require("../controllers/processFile");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -25,7 +25,7 @@ module.exports = function(app) {
 
   app.get("/api/auth/profile/:username",controller.getUserData);
 
-  app.get("/api/auth/profile/recommendations", controller2.callName);
+  //app.get("/api/auth/profile/recommendations", controller2.callName);
 
   };
 
