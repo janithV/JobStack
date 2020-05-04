@@ -29,6 +29,7 @@ export class SyscolabsProfileComponent implements OnInit {
     return this.getReview()
     .subscribe(
       res => {
+        console.log(res);
         this.rating = res.reviews;
         console.log(this.rating);
       },

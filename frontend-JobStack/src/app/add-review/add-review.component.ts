@@ -42,11 +42,11 @@ export class AddReviewComponent implements OnInit {
     // formData.append("review", this.addReviewForm.get('review').value);
     // console.log(formData);
     var userId = window.sessionStorage.getItem("userId");
-
+    console.log(this.addReviewForm.value);
     this.http.post('http://localhost:8080/api/company/review', {
       userId: userId,
       companyName: this.addReviewForm.value.companyName,
-      rate: this.addReviewForm.value.rate,
+      rate: this.addReviewForm.value.rating,
       review: this.addReviewForm.value.review
     })
     .subscribe((res) => {
