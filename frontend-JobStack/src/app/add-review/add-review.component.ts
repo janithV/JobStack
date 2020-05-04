@@ -42,7 +42,7 @@ export class AddReviewComponent implements OnInit {
     formData.append("rating",this.addReviewForm.get('rating').value);
     formData.append("review", this.addReviewForm.get('review').value);
 
-    this.http.post('https://jobstack.azurewebsites.net/', formData)
+    this.http.post('https://jobstack.azurewebsites.net/api/company/review', formData)
     .subscribe(
       (res) => console.log(res),
       (err)=> console.log(err)   
