@@ -122,7 +122,7 @@ export class BoardUserComponent implements OnInit {
   getRecommend(){
     this.recommendService.getRecommendation(this.id).subscribe(
       res => {
-        
+        console.log(res);
       }
     )
   }
