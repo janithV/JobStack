@@ -10,6 +10,7 @@ exports.getRecommendations = (req, res) => {
     var list = "";
     var company;
     var companyD;
+    var companyData = [];
 
     User.findOne({
         where: {
@@ -61,16 +62,28 @@ exports.getRecommendations = (req, res) => {
                   });
                 }
             });
-
-            res.status(200).send({
-              message: "Recommendations successfull",
-              data:list
+            
+            companyD = list.split(",");
+            for(i=0; i<(companyD.length-1);i++){
+              User.findOne({
+                where: companyD[i]
+              }
+            )
+            .then(msg => {
+              console.log(msg.companyName);
+              companyData.push(msg.companyName);
+            }).catch(err => {
+              console.log(err);
+              res.status(500).send({ message: err.message });
             });
-    })
-    .catch(err => {
-      console.log(err);
-      res.send({ message: err.message });
-    });
+           }
+
+           res.send({companyData});
+          })
+        .catch(err => {
+          console.log(err);
+          res.send({ message: err.message });
+        });
   
 
 };
