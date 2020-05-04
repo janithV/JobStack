@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { RecommendService } from '../../services/recommend.service';
 
 @Component({
   selector: 'app-board-user',
@@ -35,7 +36,7 @@ export class BoardUserComponent implements OnInit {
 
   id = window.sessionStorage.getItem("email");
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private recommendService: RecommendService) { }
 
   ngOnInit() {
     console.log(this.id);
@@ -70,5 +71,16 @@ export class BoardUserComponent implements OnInit {
     )
     //console.log(this.user);
   }
+
+  getRecommend(){
+    this.recommendService.getRecommendation(this.id).subscribe(
+      res => {
+        
+      }
+    )
+  }
+  
+
+  
 
 }
