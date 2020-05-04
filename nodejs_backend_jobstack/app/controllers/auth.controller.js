@@ -148,21 +148,9 @@ exports.signin = (req, res) => {
 });
 };
 
-exports.update = (req, res) => {
+exports.update = (req, res, next) => {
   // Save User to Database
   console.log("updating user");
-
-  var id = 0;
-
-  User.findOne({
-    where: {
-      userEmail: req.body.username
-    }
-  })
-    .then(user => { 
-      id =  user.userId;
-      console.log(id);
-    });
 
   if (req.body.codingSkill) {
     codeskill = 1;
@@ -231,32 +219,36 @@ exports.update = (req, res) => {
   else{
   uiux = 0;  
   }
+    const updateuser ={
+      userFirstName:req.body.firstname,
+          userLastName: req.body.lastname,
+          school: req.body.nameOfSchool,
+          university: req.body.nameOfUni,
+          degreeId: req.body.degreeQual,
+          codingSkill: codeskill,
+          socialSkill: socialskill,
+          languageSkill: langSkill,
+          programDevelopment: programDev,
+          frontEndDevelopment: frontend,
+          backEndDevelopment: backend,
+          fullStack: fullstack,
+          mobileDevelopment: mobile,
+          webDevelopment: web,
+          uiUx: uiux
+    }
 
-  
-  User.update(
-    {
-      userFirstName: req.body.firstname,
-      userLastName: req.body.lastname,
-      school: req.body.nameOfSchool,
-      university: req.body.nameOfUni,
-      degreeId: req.body.degreeQual,
-      codingSkill: codeskill,
-      socialSkill: socialskill,
-      languageSkill: langSkill,
-      programDevelopment: programDev,
-      frontEndDevelopment: frontend,
-      backEndDevelopment: backend,
-      fullStack: fullstack,
-      mobileDevelopment: mobile,
-      webDevelopment: web,
-      uiUx: uiux
-    },
-    {where: {userId: id}}
+  User.update(updateuser,
+    {where:{userId: req.params.id}}
   )
-  .then((userUpdated) => {
-    res.json({ status: 'User Updated!', data:userUpdated });
+  .then(user => {
+    console.log(user);
+    res.send({
+       message: "User registered successfully!"
+  });
   })
-  .error(err => console.log(err));
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
 
 };
 
