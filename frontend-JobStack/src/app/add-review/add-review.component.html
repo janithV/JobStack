@@ -7,16 +7,21 @@
     <form novalidate [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
-          <input matInput formControlName="companyName" placeholder="companyName" type="text" required>
+          <input matInput formControlName="companyName" placeholder="Company Name" type="text" required>
         </mat-form-field>
-        <mat-form-field>
-            <mat-label>Rate</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let level of rate" [value]="level.value">
-                {{level.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+        <br>
+            <mat-label>Rate</mat-label><br>
+            <mat-slider
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1"
+              step="1"
+              min="1"
+              max="5"
+              formControlName="rating"
+             >
+          </mat-slider>
+          <br>
         
         <mat-form-field appearance="fill">
             <textarea matInput formControlName="review" placeholder="review" type="text" required></textarea>

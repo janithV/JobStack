@@ -1,29 +1,22 @@
-var express = require('express'); 
-var app = express(); 
+var mysql = require('mysql');
 
-var mysql=require('mysql');
-
-var con=mysql.createConnection({
-    host: "remotemysql.com",
-    user: "RtG8BK6Pbe",
-    password: "bXH6YfYQMr",
-    database: "RtG8BK6Pbe",
+var con = mysql.createConnection({
+  host: "remotemysql.com",
+  user: "RtG8BK6Pbe",
+  password: "bXH6YfYQMr",
+  database: "RtG8BK6Pbe"
 });
 
-con.connect((err) => {
-    if(err) throw err;
-    console.log("Database connected");
-})
+con.connect(function(err) {
+if (err) console.log(err);
+console.log("Connected!");
 
-app.listen(3000, function() { 
-	console.log('server running on port 3000'); 
 });
 
-app.get('/', callName); 
+exports.callName = (req, res) => {
+    let userId = req.body.userId;
+    userid = 2;
 
-function callName(req, res) { 
-    userid = 5;
-    
     con.query("SELECT * FROM UserTable WHERE userId = ? ", [userid], function (err, result, fields) {
         if (err) throw err;
 

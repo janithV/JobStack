@@ -1,53 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { Login } from '../shared/login';
 import {MatSliderModule} from '@angular/material/slider';
-
-interface Level {
-  value: string;
-  viewValue: string;
-}
+import { Rating } from '../shared/rating';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
   styleUrls: ['./add-review.component.scss']
 })
+
 export class AddReviewComponent implements OnInit {
 
   addReviewForm : FormGroup;
-  addReview: Login;
- 
+  rating : FormData;
 
-  rate: Level[] = [
-    {value: 'Poor-1', viewValue: 'Poor'},
-    {value: 'Fair-2', viewValue: 'Fair'},
-    {value: 'Good-3', viewValue: 'Good'},
-    {value: 'Very Good-4', viewValue: 'Very Good'},
-    {value: 'Excellent-5', viewValue: 'Excellent'}
-  ];
-
-  constructor(private lg: FormBuilder,public dialogRef: MatDialogRef<AddReviewComponent>) { 
+  constructor(private http: HttpClient, private lg: FormBuilder,public dialogRef: MatDialogRef<AddReviewComponent>) { 
     this.createForm();
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
   createForm(){
 
     this.addReviewForm = this.lg.group({
-      companyName:'',
-      review:''
+      companyName:[''],
+      rating:[1],
+      review:['']
      
     });
   }
 
   onSubmit(){
-    this.addReview = this.addReviewForm.value;
-    console.log(this.addReview);
+    
+    console.log(this.addReviewForm.value);
+    
+    var formData: any = new FormData();
+    formData.append("companyName", this.addReviewForm.get('companyName').value);
+    formData.append("rating",this.addReviewForm.get('rating').value);
+    formData.append("review", this.addReviewForm.get('review').value);
+
+    this.http.post('https://jobstack.azurewebsites.net/api/company/review', formData)
+    .subscribe(
+      (res) => console.log(res),
+      (err)=> console.log(err)   
+    );
     this.addReviewForm.reset();
     this.dialogRef.close();
+
+
   }
+
+  formatLabel(value: number) {
+    if (value > 5) {
+      return Math.round(value / 5);
+    }
+    return value;
+  }
+
+  
 }
