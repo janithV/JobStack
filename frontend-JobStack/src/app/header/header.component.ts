@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   username: string;
   companyList = [];
+  search = '';
 
   constructor(public dialog: MatDialog,private tokenStorageService: TokenStorageService, private searchService: SearchService) { }
 

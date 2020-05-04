@@ -11,6 +11,6 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   search(data):Observable<any>{
-    return this.http.get<any>('localhost:8080/api/auth/' + 'search/' + data);
+    return this.http.get<any>('localhost:8080/api/auth/search/' + data);
   }
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -20,7 +19,7 @@ import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ProfileComponent, BoardUserComponent, EditComponent],
+  declarations: [LoginComponent, RegisterComponent, BoardUserComponent, EditComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,
