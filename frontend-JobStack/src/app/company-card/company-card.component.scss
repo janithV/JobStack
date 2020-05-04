@@ -1,0 +1,27 @@
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$background-moredark: rgb(76, 50, 138);
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.jumbotron {
+        
+        background-image: url("/assets/images/com-card.jpg"); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        height:100%;
+        margin-bottom:0;
+    }
+.intro{
+    padding:6%;
+    
+    
+
+}

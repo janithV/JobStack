@@ -9,7 +9,7 @@ $background-pale: #D1C4E9;
 }
 
 .footer{
-    background-color: $background-light;
+    background-color: rgb(150, 75, 173);
     @include zero-margin(20px, 0px);
     color:white;
     font-family:Roboto,sans-serif;

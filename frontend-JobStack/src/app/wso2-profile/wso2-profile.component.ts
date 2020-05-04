@@ -3,7 +3,8 @@ import { AddReviewComponent } from '../add-review/add-review.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { StarRatingComponent } from 'ng-starrating';
+ 
 @Component({
   selector: 'app-wso2-profile',
   templateUrl: './wso2-profile.component.html',
@@ -43,5 +44,12 @@ export class Wso2ProfileComponent implements OnInit {
   
   getReview() :Observable<any>{
     return this.http.get('http://localhost:8080/api/company/' + 'reviews/' + this.name);
+  }
+
+  onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
+    alert(`Old Value:${$event.oldValue}, 
+      New Value: ${$event.newValue}, 
+      Checked Color: ${$event.starRating.checkedcolor}, 
+      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
   }
 }

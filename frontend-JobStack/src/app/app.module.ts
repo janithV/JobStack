@@ -22,7 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
-
+import { RatingModule } from 'ng-starrating';
 
 import 'hammerjs';
 import { AuthenticationModule } from './authentication/authentication.module';
@@ -45,6 +45,7 @@ import { AddReviewComponent } from './add-review/add-review.component';
 
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { CompanyCardComponent } from './company-card/company-card.component';
 
 @NgModule({
   declarations: [
@@ -60,11 +61,13 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     SyscolabsProfileComponent,
     VirtusaProfileComponent,
     AddReviewComponent,
+    CompanyCardComponent,
     
    
   ],
   imports: [
     AppRoutingModule,
+    RatingModule,
     HttpClientModule,
     MatNativeDateModule,
     HammerModule,

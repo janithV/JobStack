@@ -6,7 +6,14 @@
     padding:6%;
 }
 
-
+.mat-list-item{
+    color:rgb(180, 179, 179);
+    padding:0;
+    font-weight: lighter;
+}
+.mat-button{
+    border:1px solid rgb(172, 169, 169);
+}
 .profile-head{
     text-align:center
 }
@@ -58,3 +65,5 @@ img{
     text-align:center;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+

@@ -1,0 +1,197 @@
+<div class="row" fxFlex fxFlexLayoutGap="20px">
+    <mat-card class="form-size" >
+      <h1>Edit Profile</h1>
+      <!-- (ngSubmit)="f.editForm.valid && onSubmit()" 
+    #f="ngForm"-->
+      <form
+        name="editForm"
+        
+        
+        novalidate
+      >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            
+          />
+          <!-- [(ngModel)]="editForm.username"
+            
+            #username="ngModel" -->
+          
+        </div>
+       
+  
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            
+          />
+        </div>
+        <!-- [(ngModel)]="editForm.firstname"
+            
+            #firstname="ngModel" -->
+          
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            
+          />
+          <!-- [(ngModel)]="editForm.lastname"
+            
+            #lastname="ngModel" -->
+          
+        </div>
+        <div class="form-group">
+          <label for="birthDate">Enter your Birth Date</label>
+          <input
+            [matDatepicker]="picker"
+            class="form-control"
+            name="birthDate"
+            
+          />
+          <!-- [(ngModel)]="editForm.birthDate"
+            
+            #birthDate="ngModel" -->
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker> 
+          
+        </div>
+  
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <mat-select 
+          placeholder="Gender"
+          class="form-control"
+          name="gender"
+          >
+          <!-- 
+          [(ngModel)]="editForm.gender" #gender="ngModel"-->
+  
+          <mat-option class="form-control" value="female" name="female" > Female</mat-option>
+          <mat-option class="form-control" value="male" name="male" > Male</mat-option>
+  
+          </mat-select>
+        </div>
+  
+        <div class="form-group">
+          <label for="nameOfSchool">Name of School</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameOfSchool"
+            
+          />
+          <!-- [(ngModel)]="editForm.nameOfSchool"
+           
+            #nameOfSchool="ngModel" -->
+          
+        </div>
+  
+        <div class="form-group">
+          <label for="nameOfUni">Name of University</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameOfUni"
+            
+          />
+          <!-- [(ngModel)]="editForm.nameOfUni"
+            
+            #nameOfUni="ngModel" -->
+          
+        </div>
+  
+        <div class="form-group">
+          <label for="degreeQual">Degree of Qualification</label>
+          <mat-select 
+          placeholder="Degree of Qualification"
+          class="form-control"
+          name="degreeQual"
+          >
+          <!-- [(ngModel)]="editForm.degreeQual"
+          
+          #degreeQual="ngModel" -->
+  
+          <mat-option class="form-control" value="DID01"  name="ComputerScience"> Computer Science</mat-option>
+          <mat-option class="form-control" value="DID02" name="SoftwareEngineering"  > Software Engineering</mat-option>
+          <mat-option class="form-control" value="DID03W"  name="BusinessInformationSystems"> Business Information Systems</mat-option>
+          <mat-option class="form-control" value="DID04" name="InformationSystems"> Information Systems</mat-option>
+  
+          </mat-select>
+        </div>
+  
+        <div class="form-group">
+          <label for="Skills">Skills</label>
+          <ol>
+              <li>
+                  <mat-checkbox  class="form-control" name="codingSkill" >Coding Skills</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.codingSkill"  #codingSkill="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="socialSkill">Social Skills</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.socialSkill"  #socialSkill="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="langSkill" >Language Skills</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.langSkill"  #langSkill="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="webDev" >Web Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.webDev"  #webDev="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="programDev" >Program Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.programDev"  #programDev="ngModel" -->
+              </li>
+                 
+          </ol>
+        </div>
+        <div class="form-group">
+          <label for="specialization">Specialization</label>
+          <ol>
+              <li>
+                  <mat-checkbox  class="form-control" name="backend" >Backend Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.backend"  #backend="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="frontend" >Frontend Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.frontend"  #frontend="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="fullstack" >Fullstack Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.fullstack"  #fullstack="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="web" >Web Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.web"  #web="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="mobile" >Mobile Application Development</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.mobile"  #mobile="ngModel" -->
+              </li>
+              <li>
+                  <mat-checkbox  class="form-control" name="uiux" >UI/UX</mat-checkbox>
+                  <!-- [(ngModel)]="editForm.uiux"  #uiux="ngModel" -->
+              </li>
+                 
+          </ol>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Edit</button>
+        </div>
+  
+       
+      </form>
+  
+    
+    </mat-card>
+  </div>

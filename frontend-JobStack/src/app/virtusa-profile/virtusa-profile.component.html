@@ -35,20 +35,21 @@
         </div>
 
         <div class="company-review">
-            <h3>Reviews</h3>
-            <mat-list *ngFor="let review of rating">
-                <mat-list-item>
-                    {{review.dateRated | date}}
-                </mat-list-item>
-                <mat-list-item>
-                    {{review.rating}}
-                </mat-list-item>
-                <mat-list-item>
-                    {{review.review}}
-                </mat-list-item>
-            </mat-list>
+             <h3>Reviews</h3>
+            <mat-card *ngFor="let review of rating" class="card1">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+                    <div mat-card-avatar class="rating"></div>
+                    <mat-card-title>{{review.rating }} 
+                        <span class="fa fa-star checked"></span>
+                    </mat-card-title>
+                    <mat-card-subtitle>{{review.dateRated | date}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{review.review}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            
         </div>
-        </div>>
+        </div>
     </body>
 
 </html>

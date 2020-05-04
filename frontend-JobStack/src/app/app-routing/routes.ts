@@ -10,7 +10,8 @@ import { SyscolabsProfileComponent } from '../syscolabs-profile/syscolabs-p
 import { VirtusaProfileComponent } from '../virtusa-profile/virtusa-profile.component';
 import { AddReviewComponent } from '../add-review/add-review.component';
 import { BoardUserComponent } from '../authentication/board-user/board-user.component';
-
+import { EditComponent } from '../authentication/edit/edit.component';
+import { CompanyCardComponent } from '../company-card/company-card.component';
 
 export const routes: Routes = [
 
@@ -18,14 +19,15 @@ export const routes: Routes = [
     {path :'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
     {path :'profile', component:ProfileComponent},
-    // {path :'', redirectTo: '/home', pathMatch: 'full' },
+    {path :'', redirectTo: '/home', pathMatch: 'full' },
     {path :'company', component:CompanyComponent},
     {path :'wso2-profile', component:Wso2ProfileComponent},
     {path :'syscolabs-profile', component:SyscolabsProfileComponent},
     {path :'virtusa-profile', component:VirtusaProfileComponent},
     {path :'add-review', component:AddReviewComponent},
-    {path: 'user', component: BoardUserComponent },
-
+    {path :'user', component: BoardUserComponent },
+    {path :'edit', component: EditComponent},
+    {path :'com-card', component: CompanyCardComponent}
     
     
 

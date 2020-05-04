@@ -4,10 +4,33 @@ body, html
     background-color: #f1f1f1;
 }
 
+.mat-card{
+   
+    margin:3px;
+}
+.checked{
+    color:rgb(255, 208, 0)
+}
+.avatar{
+    background-image:url("/assets/images/profile.png");
+    background-size: cover;
+    padding:0
+
+}
+
+.company-review{
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
 .large-container{
     margin-left: 10%;
     margin-right: 10%;
+    font-family: Roboto, sans-serif;
+    background-color:rgb(163, 163, 163);
 }
+
 
 .fb-profile{
 

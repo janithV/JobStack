@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../authentication/login/login.component';
 import { UserService} from '../services/user.service';
 
 @Component({
@@ -25,6 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   openLoginForm(){
-    this.dialog.open(LoginComponent, {width:'400px', height:'450px'});
+    this.dialog.open(LoginComponent, {width:'400px', height:'350px'});
   }
 }

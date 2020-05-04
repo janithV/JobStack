@@ -7,6 +7,7 @@ fxLayoutGap="10px">
                 <mat-card-header>
                     <mat-card-title class="profile-head">
                       <img mat-card-image src="assets/images/profile.png">
+                      <a mat-button href="/edit" routerLink="/edit" ><span class="fa fa-edit fa-lg"></span> Edit</a>
                     
                         <h1 ></h1>
                         
@@ -15,20 +16,50 @@ fxLayoutGap="10px">
                 </mat-card-header>
                 <mat-card-content> 
                     <br>
-                  
-                        <mat-list>
-                            <mat-list-item> {{user.username}} </mat-list-item>
-                            <mat-list-item> {{user.name}} </mat-list-item>
-                            <mat-list-item> {{user.dob}} </mat-list-item>
-                            <mat-list-item> {{user.gender}} </mat-list-item>
-                            <mat-list-item> {{user.school}} </mat-list-item>
-                            <mat-list-item> {{user.university}} </mat-list-item>
-                            <mat-list-item> {{user.degree}} </mat-list-item>
-                            <mat-list-item *ngFor="let skill of skills"> {{skill}} </mat-list-item>
-                            <mat-list-item *ngFor="let specialization of specializations"> {{specialization}} </mat-list-item>
-
-                        </mat-list>            
-                  
+                    <table>
+                        <tr>
+                            <td>Username</td>
+                            <td>: {{user.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>: {{user.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>: {{user.dob | date}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>: {{user.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>School</td>
+                            <td>: {{user.school}}</td>
+                        </tr>
+                        <tr>
+                            <td>University</td>
+                            <td>: {{user.university}}</td>
+                        </tr>
+                        <tr>
+                            <td>Degree of Qualification</td>
+                            <td>: {{user.degree}}</td>
+                        </tr>
+                        <tr>
+                            <td>Skills</td>
+                            <td>:</td>
+                       
+                        </tr>
+                        <br>
+                        <tr *ngFor="let skill of skills"> {{skill}}</tr><br>
+                        <tr>
+                            <td>Specialization</td>
+                            <td>:</td>
+                        </tr>
+                        <br>
+                        <tr *ngFor="let specialization of specializations"> {{specialization}}</tr>
+                        
+                    </table>
                 </mat-card-content>
                 <mat-card-footer>
                   
