@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
           },
           rating: {
-            type: Sequelize.INTEGER
+            type: Sequelize.DOUBLE
           },
           review: {
             type: Sequelize.STRING

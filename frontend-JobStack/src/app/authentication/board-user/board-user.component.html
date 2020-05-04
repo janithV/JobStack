@@ -24,7 +24,8 @@ fxLayoutGap="10px">
                             <mat-list-item> {{user.school}} </mat-list-item>
                             <mat-list-item> {{user.university}} </mat-list-item>
                             <mat-list-item> {{user.degree}} </mat-list-item>
-                            <mat-list-item> {{user.skills}} </mat-list-item>
+                            <mat-list-item *ngFor="let skill of skills"> {{skill}} </mat-list-item>
+                            <mat-list-item *ngFor="let specialization of specializations"> {{specialization}} </mat-list-item>
 
                         </mat-list>            
                   
@@ -36,13 +37,7 @@ fxLayoutGap="10px">
 </div>
 <div fxFlex fxLayout="column" fxLayoutGap="2px">
     
-    <form>
-        <mat-form-field>
-          
-          <input matInput class="form-control" type="search" placeholder="Search" >
-          
-        </mat-form-field>
-      </form>
+    
       <span class="recom">
         <h2>Your Recommendations!</h2>
       </span>

@@ -140,7 +140,11 @@ exports.signin = (req, res) => {
         });
       }
 
-      res.status(200).send({message: "User Successfully Logged In"});
+      res.status(200).send(
+        {
+          message: "User Successfully Logged In",
+          user: user
+      });
 });
 };
 
@@ -228,6 +232,7 @@ exports.update = (req, res) => {
   uiux = 0;  
   }
 
+  
   User.update(
     {
       userFirstName: req.body.firstname,

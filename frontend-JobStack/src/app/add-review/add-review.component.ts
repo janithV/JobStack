@@ -51,7 +51,6 @@ export class AddReviewComponent implements OnInit {
       review: this.addReviewForm.value.review
     })
     .subscribe((res) => {
-      console.log(res);
     }  
     );
     this.addReviewForm.reset();
