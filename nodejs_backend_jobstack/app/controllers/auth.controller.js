@@ -145,9 +145,7 @@ exports.signin = (req, res) => {
         });
       }
 
-      // var token = jwt.sign({ user }, config.secret, {
-      //   expiresIn: 86400 // 24 hours
-      // })
+      res.status(200).send({message: "User Successfully Logged In"});
 });
 };
 
@@ -303,3 +301,29 @@ exports.getUserData = (req, res) => {
 });
 
 };
+
+
+
+//Testing Pruposes
+// {
+// 	"username": "midoriya@gmail.com",
+// 	"password": "12345",
+//     "firstname": "mido",
+//     "lastname": "iyuzu",
+//     "birthDate": "2019-01-05",
+//     "gender": "Male",
+//     "nameOfSchool": "STC",
+//     "nameOfUni": "IIT",
+//     "degreeQual": "DID01",
+//     "codingSkill": true,
+//     "socialSkill": true,
+//     "languageSkill": false,
+//     "programDevelopment": false,
+//     "frontEndDevelopment": false,
+//     "backEndDevelopment": true,
+//     "fullStack": false,
+//     "mobileDevelopment": true,
+//     "webDevelopment": true,
+//     "uiUx": false
+    
+// }

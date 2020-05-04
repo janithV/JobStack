@@ -30,7 +30,7 @@ exports.rating = (req, res) => {
           console.log(msg);
           res.status(200).send({
             msg: "Review added successfully"
-          })
+          });
         }).catch(err => {
           res.status(500).send({ message: err.message });
         });
