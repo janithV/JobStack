@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSliderModule} from '@angular/material/slider';
-import { Rating } from '../shared/rating';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

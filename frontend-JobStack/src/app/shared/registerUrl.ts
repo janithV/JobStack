@@ -1,1 +1,0 @@
-export const registerURL = 'http://localhost:8080/';

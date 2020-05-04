@@ -32,11 +32,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './services/auth.service';
-import { ProfileComponent } from './profile/profile.component';
 import { CompanyComponent } from './company/company.component';
 import { Wso2ProfileComponent } from './wso2-profile/wso2-profile.component';
 import { SyscolabsProfileComponent } from './syscolabs-profile/syscolabs-profile.component';
@@ -53,9 +50,6 @@ import { CompanyCardComponent } from './company-card/company-card.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
     CompanyComponent,
     Wso2ProfileComponent,
     SyscolabsProfileComponent,
