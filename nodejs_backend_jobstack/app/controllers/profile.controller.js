@@ -46,8 +46,7 @@ exports.getRecommendations = (req, res) => {
             });
 
             res.status(200).send({
-              message: "Works",
-              recommendations:body
+              message: "Works"
             });
     });
 
