@@ -1,7 +1,14 @@
 var express = require('express'); 
 var app = express(); 
 
-var con = require('./db');
+var mysql=require('mysql');
+
+var con=mysql.createConnection({
+    host: "remotemysql.com",
+    user: "RtG8BK6Pbe",
+    password: "bXH6YfYQMr",
+    database: "RtG8BK6Pbe",
+});
 
 con.connect((err) => {
     if(err) throw err;
@@ -16,8 +23,7 @@ app.get('/', callName);
 
 function callName(req, res) { 
     userid = 5;
-    var con = require('./db');
-
+    
     con.query("SELECT * FROM UserTable WHERE userId = ? ", [userid], function (err, result, fields) {
         if (err) throw err;
 
